@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node scripts/start-all.mjs",
+    "start:containers": "docker compose up --build",
+    "containers:down": "docker compose down",
     "data:refresh": "node scripts/import-jprime-data.mjs",
     "dev": "npm --prefix frontend run dev",
     "build": "npm --prefix frontend run build",

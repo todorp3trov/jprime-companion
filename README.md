@@ -8,9 +8,9 @@ JPrime Companion is a local conference companion app for JPrime, a Java and JVM 
 
 ## Requirements
 
-- Node.js 20.19+ or 22.12+ with npm.
-- Docker with Docker Compose for PostgreSQL.
-- JDK 25 for the Spring Boot backend. Install it normally for your OS; Gradle uses its Java toolchain support to find it from `JAVA_HOME` or standard local installations.
+- Node.js 20.19+ or 22.12+ with npm for the host-based scripts.
+- Docker with Docker Compose for PostgreSQL and the containerized stack.
+- JDK 25 for the host-based Spring Boot backend. Install it normally for your OS; Gradle uses its Java toolchain support to find it from `JAVA_HOME` or standard local installations. The containerized stack builds and runs the backend inside Docker instead.
 - Optional: [Graphify CLI](https://github.com/safishamsi/graphify), only if you want to refresh or query the project knowledge graph locally.
 
 ## Start
@@ -28,6 +28,18 @@ npm start
 ```
 
 This starts PostgreSQL, waits for it to become healthy, then starts the API on `http://localhost:8080` and the Vite app on `http://127.0.0.1:5173`. Stop everything with `Ctrl+C`.
+
+Alternatively, run the backend and frontend inside containers:
+
+```sh
+npm run start:containers
+```
+
+This builds the Spring Boot API image, builds the React app as static assets served by Nginx, starts PostgreSQL on the compose network, and exposes the app at `http://localhost:5173` with the API at `http://localhost:8080`. You can also run the same stack directly with `docker compose up --build`. Stop it with `Ctrl+C`, or remove the containers and network with:
+
+```sh
+npm run containers:down
+```
 
 ## Project Graph
 
