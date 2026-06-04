@@ -78,6 +78,7 @@ class CompanionApiIntegrationTest {
             .andExpect(jsonPath("$.kind", is("lecture")))
             .andExpect(jsonPath("$.speakers", hasSize(1)))
             .andExpect(jsonPath("$.speakers[0]", is("Sergi Almar")))
+            .andExpect(jsonPath("$.materials", hasSize(0)))
             .andExpect(jsonPath("$.saved", is(false)));
     }
 

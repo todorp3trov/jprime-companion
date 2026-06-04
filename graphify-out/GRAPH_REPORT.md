@@ -1,7 +1,7 @@
 # Graph Report - jprime-companion  (2026-06-04)
 
 ## Corpus Check
-- 65 files · ~28,759 words
+- 65 files · ~28,767 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b99d3b09`
+- Built from commit: `9e5c45ac`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

@@ -214,7 +214,7 @@
       "label": "loadUrl()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1305",
+      "source_location": "L1309",
       "id": "src_app_loadurl",
       "community": 0,
       "norm_label": "loadurl()"
@@ -223,7 +223,7 @@
       "label": "saveBody()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1328",
+      "source_location": "L1332",
       "id": "src_app_savebody",
       "community": 0,
       "norm_label": "savebody()"
@@ -232,7 +232,7 @@
       "label": "onPickFile()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1337",
+      "source_location": "L1341",
       "id": "src_app_onpickfile",
       "community": 0,
       "norm_label": "onpickfile()"
@@ -241,7 +241,7 @@
       "label": "removePhoto()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1350",
+      "source_location": "L1354",
       "id": "src_app_removephoto",
       "community": 0,
       "norm_label": "removephoto()"
@@ -250,7 +250,7 @@
       "label": "submit()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1472",
+      "source_location": "L1476",
       "id": "src_app_submit",
       "community": 0,
       "norm_label": "submit()"
@@ -259,7 +259,7 @@
       "label": "tick()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1558",
+      "source_location": "L1562",
       "id": "src_app_tick",
       "community": 0,
       "norm_label": "tick()"
@@ -601,7 +601,7 @@
       "label": ".notificationsIncludeVenkatRoomChange()",
       "file_type": "code",
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
-      "source_location": "L84",
+      "source_location": "L85",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_notificationsincludevenkatroomchange",
       "community": 1,
       "norm_label": ".notificationsincludevenkatroomchange()"
@@ -610,7 +610,7 @@
       "label": ".statusIsComputedFromConferenceClock()",
       "file_type": "code",
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
-      "source_location": "L97",
+      "source_location": "L98",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_statusiscomputedfromconferenceclock",
       "community": 1,
       "norm_label": ".statusiscomputedfromconferenceclock()"
@@ -619,7 +619,7 @@
       "label": ".savedRequiresDeviceIdHeader()",
       "file_type": "code",
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
-      "source_location": "L107",
+      "source_location": "L108",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_savedrequiresdeviceidheader",
       "community": 1,
       "norm_label": ".savedrequiresdeviceidheader()"
@@ -628,7 +628,7 @@
       "label": ".saveAndUnsaveRoundTrip()",
       "file_type": "code",
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
-      "source_location": "L112",
+      "source_location": "L113",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_saveandunsaveroundtrip",
       "community": 1,
       "norm_label": ".saveandunsaveroundtrip()"
@@ -637,7 +637,7 @@
       "label": ".noteRatingAndAttachmentPersist()",
       "file_type": "code",
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
-      "source_location": "L125",
+      "source_location": "L126",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_noteratingandattachmentpersist",
       "community": 1,
       "norm_label": ".noteratingandattachmentpersist()"
@@ -3638,9 +3638,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L217",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_getsessionmetaline",
-      "confidence_score": 1.0
+      "target": "src_app_getsessionmetaline"
     },
     {
       "relation": "contains",
@@ -3648,9 +3648,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L221",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_displayhandle",
-      "confidence_score": 1.0
+      "target": "src_app_displayhandle"
     },
     {
       "relation": "contains",
@@ -3658,9 +3658,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L225",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_safehttpsurl",
-      "confidence_score": 1.0
+      "target": "src_app_safehttpsurl"
     },
     {
       "relation": "contains",
@@ -3668,9 +3668,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L235",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_socialnetworklabel",
-      "confidence_score": 1.0
+      "target": "src_app_socialnetworklabel"
     },
     {
       "relation": "contains",
@@ -3916,9 +3916,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_socialnetworklabel",
-      "target": "src_app_safehttpsurl",
-      "confidence_score": 1.0
+      "target": "src_app_safehttpsurl"
     },
     {
       "relation": "calls",
@@ -7371,9 +7371,9 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "domain_speaker_speaker",
-      "target": "domain_speaker_speaker_getsocialurl",
-      "confidence_score": 1.0
+      "target": "domain_speaker_speaker_getsocialurl"
     },
     {
       "relation": "method",
@@ -8585,5 +8585,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b99d3b09b8d8508a9d7b77997b4d985eb8aa258f"
+  "built_at_commit": "9e5c45aca36cb3c3315e0696d653ad7d58acecff"
 }

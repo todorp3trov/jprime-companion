@@ -1126,18 +1126,22 @@ function SessionDetail({
           <Star size={17} /> Rate
         </button>
       </div>
-      {session.materials.length ? (
-        <div className="materialsPanel">
-          <h3>Available materials</h3>
-          {session.materials.map((material) => (
-            <button className="materialRow" key={material}>
+      <div className="materialsPanel">
+        <h3>Materials</h3>
+        {session.materials.length ? (
+          session.materials.map((material) => (
+            <div className="materialRow" key={material}>
               <FileText size={16} />
               <span>{material}</span>
-              <ChevronRight size={15} />
-            </button>
-          ))}
-        </div>
-      ) : null}
+            </div>
+          ))
+        ) : (
+          <div className="materialEmpty">
+            <FileText size={16} />
+            <span>No materials yet.</span>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
