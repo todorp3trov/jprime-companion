@@ -2,6 +2,10 @@
 
 JPrime Companion is a local conference companion app for JPrime, a Java and JVM ecosystem conference. It includes a React frontend, a Spring Boot REST API, and a PostgreSQL database seeded with conference data. The app can show sessions, speakers, notifications, maps, and per-device notes, ratings, and saved sessions.
 
+## Walkthrough
+
+![JPrime Companion walkthrough](docs/jprime-companion-walkthrough.gif)
+
 ## Requirements
 
 - Node.js 20.19+ or 22.12+ with npm.
