@@ -1,16 +1,16 @@
 # Graph Report - jprime-companion  (2026-06-04)
 
 ## Corpus Check
-- 63 files · ~28,231 words
+- 64 files · ~28,328 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 371 nodes · 493 edges · 47 communities (29 shown, 18 thin omitted)
+- 372 nodes · 493 edges · 48 communities (30 shown, 18 thin omitted)
 - Extraction: 80% EXTRACTED · 20% INFERRED · 0% AMBIGUOUS · INFERRED: 101 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `811b3f7c`
+- Built from commit: `70cb3859`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -65,7 +65,7 @@
 - `fetchNotifications()` --calls--> `apiGet()`  [INFERRED]
   frontend/src/api/conference.ts → frontend/src/api/client.ts
 
-## Communities (47 total, 18 thin omitted)
+## Communities (48 total, 18 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.08
@@ -102,9 +102,9 @@ Nodes (4): DeviceIdArgumentResolver, WebConfig, HandlerMethodArgumentResolver, W
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `UserDataService` connect `Community 2` to `Community 1`?**
-  _High betweenness centrality (0.130) - this node is a cross-community bridge._
+  _High betweenness centrality (0.129) - this node is a cross-community bridge._
 - **Why does `DtoMapper` connect `Community 3` to `Community 8`, `Community 10`, `Community 12`, `Community 13`?**
-  _High betweenness centrality (0.127) - this node is a cross-community bridge._
+  _High betweenness centrality (0.126) - this node is a cross-community bridge._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

@@ -29,7 +29,7 @@ Directory map for AI agents and human readers working on this project. Real cont
 - `backend/src/main/resources/db/migration/` — Flyway: `V1` schema, `V2` seed (all conference data ported from `App.tsx`).
 - `backend/src/main/java/com/jprime/companion/` — `domain/` (JPA entities), `repo/`, `service/`, `web/` (controllers + DTOs), `config/`.
 - `backend/src/test/java/com/jprime/companion/` — integration tests for the REST API.
-- Run the full local stack with `npm start`. It starts the compose Postgres service, waits for it to become healthy, then starts the Spring Boot API and Vite frontend. Backend-only workflows still use `npm run backend:up` then `npm run backend:run` (needs JDK 25; `backend/gradle.properties` points at the Homebrew JDK 25 path — adjust per machine). Tests (`npm run backend:test`) run against the compose Postgres.
+- Run the full local stack with `npm start`. It starts the compose Postgres service, waits for it to become healthy, then starts the Spring Boot API and Vite frontend. Backend-only workflows still use `npm run backend:up` then `npm run backend:run` (needs JDK 25 installed normally for the host OS). Tests (`npm run backend:test`) run against the compose Postgres.
 - API: static reads (`/api/days`, `/api/sessions`, `/api/speakers`, `/api/notifications`, `/api/map-spots`, `/api/rating-criteria`, `/api/tracks`) and per-device user data (`/api/sessions/{id}/saved|note|rating`, `/api/sessions/{id}/note/attachments`, `/api/attachments/{id}`, `/api/me/saved`) keyed by the `X-Device-Id` header.
 
 ## Graphify

@@ -6,7 +6,7 @@ JPrime Companion is a local conference companion app for JPrime, a Java and JVM 
 
 - Node.js 20.19+ or 22.12+ with npm.
 - Docker with Docker Compose for PostgreSQL.
-- JDK 25 for the Spring Boot backend. Gradle is configured for a Homebrew JDK location; change `org.gradle.java.installations.paths` if yours lives elsewhere.
+- JDK 25 for the Spring Boot backend. Install it normally for your OS; Gradle uses its Java toolchain support to find it from `JAVA_HOME` or standard local installations.
 
 ## Start
 

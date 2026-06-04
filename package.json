@@ -10,7 +10,7 @@
     "preview": "npm --prefix frontend run preview",
     "backend:up": "docker compose -f backend/docker-compose.yml up -d",
     "backend:down": "docker compose -f backend/docker-compose.yml down",
-    "backend:run": "cd backend && ./gradlew bootRun",
-    "backend:test": "cd backend && ./gradlew test"
+    "backend:run": "node scripts/run-gradle.mjs bootRun",
+    "backend:test": "node scripts/run-gradle.mjs test"
   }
 }
