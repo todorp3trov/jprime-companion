@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: jprime-companion-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/jprime}
+    username: ${DB_USERNAME:jprime}
+    password: ${DB_PASSWORD:jprime}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 12MB
+
+server:
+  port: 8080
+
+# Allow the Vite dev server to call the API directly (the dev proxy makes this
+# moot, but it keeps direct cross-origin calls working too).
+app:
+  cors:
+    allowed-origins: "http://localhost:5173,http://127.0.0.1:5173"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

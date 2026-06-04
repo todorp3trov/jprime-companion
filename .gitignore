@@ -1,0 +1,21 @@
+# Generated project ignores
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+backend/build/
+backend/.gradle/
+
+# Graphify: track the portable graph snapshot, ignore local cache/metadata.
+graphify-out/*
+!graphify-out/GRAPH_REPORT.md
+!graphify-out/graph.html
+!graphify-out/graph.json
+*.log
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/

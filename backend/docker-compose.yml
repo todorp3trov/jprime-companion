@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: jprime-postgres
+    environment:
+      POSTGRES_DB: jprime
+      POSTGRES_USER: jprime
+      POSTGRES_PASSWORD: jprime
+    ports:
+      - "5432:5432"
+    volumes:
+      - jprime_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jprime -d jprime"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  jprime_pgdata:
