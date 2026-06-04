@@ -209,6 +209,10 @@ function syncSessionsToClock(sessions: Session[], now: Date) {
   });
 }
 
+function isDrillableSession(session: Session | null | undefined) {
+  return Boolean(session && session.kind !== "break");
+}
+
 function deriveLocations(sessions: Session[]) {
   const locations: string[] = [];
   for (const session of sessions) {
@@ -415,34 +419,50 @@ function AgendaSessionRow({
   onToggleSave: () => void;
 }) {
   const speakerLine = session.speakers.join(", ");
+  const interactive = isDrillableSession(session);
+  const mainContent = (
+    <>
+      <span className="sessionTopline">
+        <KindChip kind={session.kind} />
+        <span className={`statusChip ${session.status}`}>{session.status}</span>
+        <span className="agendaSessionTime">
+          <Clock size={11} />
+          {session.time}–{session.end}
+        </span>
+      </span>
+      <strong>{session.title}</strong>
+      {[speakerLine, session.level].filter(Boolean).length ? (
+        <small>{[speakerLine, session.level].filter(Boolean).join(" · ")}</small>
+      ) : null}
+    </>
+  );
+
   return (
-    <article className={`agendaSessionRow ${kindMeta[session.kind].className}`} style={locationStyle(session.room, locations)}>
+    <article
+      className={`agendaSessionRow ${kindMeta[session.kind].className} ${interactive ? "" : "static"}`}
+      style={locationStyle(session.room, locations)}
+    >
       <div className="agendaLocationRail">
         <span>{session.room}</span>
       </div>
-      <button className="agendaSessionMain" onClick={onOpen}>
-        <span className="sessionTopline">
-          <KindChip kind={session.kind} />
-          <span className={`statusChip ${session.status}`}>{session.status}</span>
-          <span className="agendaSessionTime">
-            <Clock size={11} />
-            {session.time}–{session.end}
-          </span>
-        </span>
-        <strong>{session.title}</strong>
-        {[speakerLine, session.level].filter(Boolean).length ? (
-          <small>{[speakerLine, session.level].filter(Boolean).join(" · ")}</small>
-        ) : null}
-      </button>
-      <button
-        className={`agendaSaveButton ${session.saved ? "saved" : ""}`}
-        onClick={onToggleSave}
-        aria-label={session.saved ? `Remove ${session.title} from schedule` : `Add ${session.title} to schedule`}
-        aria-pressed={session.saved}
-        title={session.saved ? "Remove from schedule" : "Add to schedule"}
-      >
-        {session.saved ? <Check size={14} /> : <Plus size={14} />}
-      </button>
+      {interactive ? (
+        <button className="agendaSessionMain" onClick={onOpen}>
+          {mainContent}
+        </button>
+      ) : (
+        <div className="agendaSessionMain static">{mainContent}</div>
+      )}
+      {interactive ? (
+        <button
+          className={`agendaSaveButton ${session.saved ? "saved" : ""}`}
+          onClick={onToggleSave}
+          aria-label={session.saved ? `Remove ${session.title} from schedule` : `Add ${session.title} to schedule`}
+          aria-pressed={session.saved}
+          title={session.saved ? "Remove from schedule" : "Add to schedule"}
+        >
+          {session.saved ? <Check size={14} /> : <Plus size={14} />}
+        </button>
+      ) : null}
     </article>
   );
 }
@@ -568,6 +588,7 @@ function HomeScreen({
   const upcoming = sessions
     .filter((session) => session.status === "upcoming" && session.id !== featured?.id)
     .slice(0, 3);
+  const featuredCanOpen = isDrillableSession(featured);
 
   if (!featured) {
     return (
@@ -595,9 +616,11 @@ function HomeScreen({
             {featured.time}–{featured.end}
           </span>
         </div>
-        <button className="primaryButton" onClick={() => onOpenSession(featured.id)}>
-          Open <ChevronRight size={16} />
-        </button>
+        {featuredCanOpen ? (
+          <button className="primaryButton" onClick={() => onOpenSession(featured.id)}>
+            Open <ChevronRight size={16} />
+          </button>
+        ) : null}
       </div>
 
       <div className="sectionHeader">
@@ -605,13 +628,24 @@ function HomeScreen({
       </div>
       {upcoming.length ? (
         <div className="compactList">
-          {upcoming.map((session) => (
-            <button className="miniSession" key={session.id} onClick={() => onOpenSession(session.id)}>
-              <span>{session.time}</span>
-              <strong>{session.title}</strong>
-              <small>{session.room}</small>
-            </button>
-          ))}
+          {upcoming.map((session) => {
+            const content = (
+              <>
+                <span>{session.time}</span>
+                <strong>{session.title}</strong>
+                <small>{session.room}</small>
+              </>
+            );
+            return isDrillableSession(session) ? (
+              <button className="miniSession" key={session.id} onClick={() => onOpenSession(session.id)}>
+                {content}
+              </button>
+            ) : (
+              <div className="miniSession static" key={session.id}>
+                {content}
+              </div>
+            );
+          })}
         </div>
       ) : (
         <StatePanel title="No upcoming sessions" body="The remaining agenda has wrapped for now." />
@@ -710,7 +744,7 @@ function AgendaScreen({
                 </div>
                 <PlenaryBand
                   session={slot.session}
-                  onOpen={slot.session.kind === "break" ? undefined : () => onOpenSession(slot.session.id)}
+                  onOpen={isDrillableSession(slot.session) ? () => onOpenSession(slot.session.id) : undefined}
                 />
               </section>
             );
@@ -852,7 +886,7 @@ function ScheduleScreen({
             {placed.map(({ session, column, columns }) => {
               const meta = kindMeta[session.kind];
               const widthPct = 100 / columns;
-              const interactive = session.kind !== "break";
+              const interactive = isDrillableSession(session);
               const durationMin = timeToMinutes(session.end) - timeToMinutes(session.time);
               const isShortBreak = session.kind === "break" && durationMin <= 20;
               const showRoom = durationMin >= 40;
@@ -1562,6 +1596,8 @@ export default function App() {
   }
 
   function openSession(id: string) {
+    const target = clockedSessions.find((session) => session.id === id);
+    if (!isDrillableSession(target)) return;
     pushOverlay({ kind: "session", id });
   }
 

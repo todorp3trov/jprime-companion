@@ -85,10 +85,19 @@
       "norm_label": "syncsessionstoclock()"
     },
     {
-      "label": "deriveLocations()",
+      "label": "isDrillableSession()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
       "source_location": "L212",
+      "id": "src_app_isdrillablesession",
+      "community": 0,
+      "norm_label": "isdrillablesession()"
+    },
+    {
+      "label": "deriveLocations()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L216",
       "id": "src_app_derivelocations",
       "community": 0,
       "norm_label": "derivelocations()"
@@ -97,7 +106,7 @@
       "label": "locationStyle()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L222",
+      "source_location": "L226",
       "id": "src_app_locationstyle",
       "community": 0,
       "norm_label": "locationstyle()"
@@ -106,7 +115,7 @@
       "label": "timeToMinutes()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L227",
+      "source_location": "L231",
       "id": "src_app_timetominutes",
       "community": 0,
       "norm_label": "timetominutes()"
@@ -115,7 +124,7 @@
       "label": "formatMinutes()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L232",
+      "source_location": "L236",
       "id": "src_app_formatminutes",
       "community": 0,
       "norm_label": "formatminutes()"
@@ -124,7 +133,7 @@
       "label": "getConferenceWindow()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L239",
+      "source_location": "L243",
       "id": "src_app_getconferencewindow",
       "community": 0,
       "norm_label": "getconferencewindow()"
@@ -133,7 +142,7 @@
       "label": "getNowMinutesForDay()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L251",
+      "source_location": "L255",
       "id": "src_app_getnowminutesforday",
       "community": 0,
       "norm_label": "getnowminutesforday()"
@@ -142,7 +151,7 @@
       "label": "layoutDay()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L259",
+      "source_location": "L263",
       "id": "src_app_layoutday",
       "community": 0,
       "norm_label": "layoutday()"
@@ -151,7 +160,7 @@
       "label": "toTop()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L796",
+      "source_location": "L830",
       "id": "src_app_totop",
       "community": 0,
       "norm_label": "totop()"
@@ -160,7 +169,7 @@
       "label": "toHeight()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L797",
+      "source_location": "L831",
       "id": "src_app_toheight",
       "community": 0,
       "norm_label": "toheight()"
@@ -169,7 +178,7 @@
       "label": "loadUrl()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1186",
+      "source_location": "L1220",
       "id": "src_app_loadurl",
       "community": 0,
       "norm_label": "loadurl()"
@@ -178,7 +187,7 @@
       "label": "saveBody()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1209",
+      "source_location": "L1243",
       "id": "src_app_savebody",
       "community": 0,
       "norm_label": "savebody()"
@@ -187,7 +196,7 @@
       "label": "onPickFile()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1218",
+      "source_location": "L1252",
       "id": "src_app_onpickfile",
       "community": 0,
       "norm_label": "onpickfile()"
@@ -196,7 +205,7 @@
       "label": "removePhoto()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1231",
+      "source_location": "L1265",
       "id": "src_app_removephoto",
       "community": 0,
       "norm_label": "removephoto()"
@@ -205,7 +214,7 @@
       "label": "submit()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1353",
+      "source_location": "L1387",
       "id": "src_app_submit",
       "community": 0,
       "norm_label": "submit()"
@@ -214,7 +223,7 @@
       "label": "tick()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L1439",
+      "source_location": "L1473",
       "id": "src_app_tick",
       "community": 0,
       "norm_label": "tick()"
@@ -504,7 +513,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L1",
       "id": "backend_src_test_java_com_jprime_companion_companionapiintegrationtest_java",
-      "community": 2,
+      "community": 1,
       "norm_label": "companionapiintegrationtest.java"
     },
     {
@@ -513,7 +522,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L35",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest",
-      "community": 2,
+      "community": 1,
       "norm_label": "companionapiintegrationtest"
     },
     {
@@ -522,7 +531,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L45",
       "id": "companion_companionapiintegrationtest_fixedclockconfig",
-      "community": 2,
+      "community": 1,
       "norm_label": "fixedclockconfig"
     },
     {
@@ -531,7 +540,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L47",
       "id": "companion_companionapiintegrationtest_fixedclockconfig_fixedclock",
-      "community": 2,
+      "community": 1,
       "norm_label": ".fixedclock()"
     },
     {
@@ -540,7 +549,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L54",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_seedsallsessionsdaysandspeakers",
-      "community": 2,
+      "community": 1,
       "norm_label": ".seedsallsessionsdaysandspeakers()"
     },
     {
@@ -549,7 +558,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L65",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_sessionexposesfrontendshape",
-      "community": 2,
+      "community": 1,
       "norm_label": ".sessionexposesfrontendshape()"
     },
     {
@@ -558,7 +567,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L81",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_notificationsincludevenkatroomchange",
-      "community": 2,
+      "community": 1,
       "norm_label": ".notificationsincludevenkatroomchange()"
     },
     {
@@ -567,7 +576,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L94",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_statusiscomputedfromconferenceclock",
-      "community": 2,
+      "community": 1,
       "norm_label": ".statusiscomputedfromconferenceclock()"
     },
     {
@@ -576,7 +585,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L104",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_savedrequiresdeviceidheader",
-      "community": 2,
+      "community": 1,
       "norm_label": ".savedrequiresdeviceidheader()"
     },
     {
@@ -585,7 +594,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L109",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_saveandunsaveroundtrip",
-      "community": 2,
+      "community": 1,
       "norm_label": ".saveandunsaveroundtrip()"
     },
     {
@@ -594,7 +603,7 @@
       "source_file": "backend/src/test/java/com/jprime/companion/CompanionApiIntegrationTest.java",
       "source_location": "L122",
       "id": "companion_companionapiintegrationtest_companionapiintegrationtest_noteratingandattachmentpersist",
-      "community": 2,
+      "community": 1,
       "norm_label": ".noteratingandattachmentpersist()"
     },
     {
@@ -657,7 +666,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/DeviceIdArgumentResolver.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_config_deviceidargumentresolver_java",
-      "community": 10,
+      "community": 9,
       "norm_label": "deviceidargumentresolver.java"
     },
     {
@@ -666,7 +675,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/DeviceIdArgumentResolver.java",
       "source_location": "L11",
       "id": "config_deviceidargumentresolver_deviceidargumentresolver",
-      "community": 10,
+      "community": 9,
       "norm_label": "deviceidargumentresolver"
     },
     {
@@ -675,7 +684,7 @@
       "source_file": "",
       "source_location": "",
       "id": "handlermethodargumentresolver",
-      "community": 10,
+      "community": 9,
       "norm_label": "handlermethodargumentresolver"
     },
     {
@@ -684,7 +693,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/DeviceIdArgumentResolver.java",
       "source_location": "L15",
       "id": "config_deviceidargumentresolver_deviceidargumentresolver_supportsparameter",
-      "community": 10,
+      "community": 9,
       "norm_label": ".supportsparameter()"
     },
     {
@@ -693,7 +702,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/DeviceIdArgumentResolver.java",
       "source_location": "L21",
       "id": "config_deviceidargumentresolver_deviceidargumentresolver_resolveargument",
-      "community": 10,
+      "community": 9,
       "norm_label": ".resolveargument()"
     },
     {
@@ -702,7 +711,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/WebConfig.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_config_webconfig_java",
-      "community": 10,
+      "community": 9,
       "norm_label": "webconfig.java"
     },
     {
@@ -711,7 +720,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/WebConfig.java",
       "source_location": "L10",
       "id": "config_webconfig_webconfig",
-      "community": 10,
+      "community": 9,
       "norm_label": "webconfig"
     },
     {
@@ -720,7 +729,7 @@
       "source_file": "",
       "source_location": "",
       "id": "webmvcconfigurer",
-      "community": 10,
+      "community": 9,
       "norm_label": "webmvcconfigurer"
     },
     {
@@ -729,7 +738,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/WebConfig.java",
       "source_location": "L15",
       "id": "config_webconfig_webconfig_webconfig",
-      "community": 10,
+      "community": 9,
       "norm_label": ".webconfig()"
     },
     {
@@ -738,7 +747,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/WebConfig.java",
       "source_location": "L21",
       "id": "config_webconfig_webconfig_addargumentresolvers",
-      "community": 10,
+      "community": 9,
       "norm_label": ".addargumentresolvers()"
     },
     {
@@ -747,7 +756,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/config/WebConfig.java",
       "source_location": "L26",
       "id": "config_webconfig_webconfig_addcorsmappings",
-      "community": 10,
+      "community": 9,
       "norm_label": ".addcorsmappings()"
     },
     {
@@ -783,7 +792,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/AttachmentController.java",
       "source_location": "L28",
       "id": "web_attachmentcontroller_attachmentcontroller_get",
-      "community": 2,
+      "community": 1,
       "norm_label": ".get()"
     },
     {
@@ -891,7 +900,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/SessionController.java",
       "source_location": "L55",
       "id": "web_sessioncontroller_sessioncontroller_savedsessions",
-      "community": 1,
+      "community": 2,
       "norm_label": ".savedsessions()"
     },
     {
@@ -900,7 +909,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/SessionController.java",
       "source_location": "L60",
       "id": "web_sessioncontroller_sessioncontroller_save",
-      "community": 1,
+      "community": 2,
       "norm_label": ".save()"
     },
     {
@@ -972,7 +981,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_web_conferencecontroller_java",
-      "community": 12,
+      "community": 11,
       "norm_label": "conferencecontroller.java"
     },
     {
@@ -981,7 +990,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L17",
       "id": "web_conferencecontroller_conferencecontroller",
-      "community": 12,
+      "community": 11,
       "norm_label": "conferencecontroller"
     },
     {
@@ -990,7 +999,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L23",
       "id": "web_conferencecontroller_conferencecontroller_conferencecontroller",
-      "community": 12,
+      "community": 11,
       "norm_label": ".conferencecontroller()"
     },
     {
@@ -999,7 +1008,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L27",
       "id": "web_conferencecontroller_conferencecontroller_days",
-      "community": 12,
+      "community": 11,
       "norm_label": ".days()"
     },
     {
@@ -1008,7 +1017,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L32",
       "id": "web_conferencecontroller_conferencecontroller_speakers",
-      "community": 12,
+      "community": 11,
       "norm_label": ".speakers()"
     },
     {
@@ -1017,7 +1026,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L37",
       "id": "web_conferencecontroller_conferencecontroller_speaker",
-      "community": 12,
+      "community": 11,
       "norm_label": ".speaker()"
     },
     {
@@ -1026,7 +1035,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L43",
       "id": "web_conferencecontroller_conferencecontroller_notifications",
-      "community": 12,
+      "community": 11,
       "norm_label": ".notifications()"
     },
     {
@@ -1035,7 +1044,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L48",
       "id": "web_conferencecontroller_conferencecontroller_mapspots",
-      "community": 12,
+      "community": 11,
       "norm_label": ".mapspots()"
     },
     {
@@ -1044,7 +1053,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L53",
       "id": "web_conferencecontroller_conferencecontroller_ratingcriteria",
-      "community": 12,
+      "community": 11,
       "norm_label": ".ratingcriteria()"
     },
     {
@@ -1053,7 +1062,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/web/ConferenceController.java",
       "source_location": "L58",
       "id": "web_conferencecontroller_conferencecontroller_tracks",
-      "community": 12,
+      "community": 11,
       "norm_label": ".tracks()"
     },
     {
@@ -1170,7 +1179,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_service_conferenceservice_java",
-      "community": 2,
+      "community": 1,
       "norm_label": "conferenceservice.java"
     },
     {
@@ -1179,7 +1188,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L31",
       "id": "service_conferenceservice_conferenceservice",
-      "community": 2,
+      "community": 1,
       "norm_label": "conferenceservice"
     },
     {
@@ -1188,7 +1197,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L44",
       "id": "service_conferenceservice_conferenceservice_conferenceservice",
-      "community": 2,
+      "community": 1,
       "norm_label": ".conferenceservice()"
     },
     {
@@ -1197,7 +1206,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L57",
       "id": "service_conferenceservice_conferenceservice_days",
-      "community": 2,
+      "community": 1,
       "norm_label": ".days()"
     },
     {
@@ -1206,7 +1215,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L61",
       "id": "service_conferenceservice_conferenceservice_sessions",
-      "community": 2,
+      "community": 1,
       "norm_label": ".sessions()"
     },
     {
@@ -1215,7 +1224,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L72",
       "id": "service_conferenceservice_conferenceservice_session",
-      "community": 2,
+      "community": 1,
       "norm_label": ".session()"
     },
     {
@@ -1233,7 +1242,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L83",
       "id": "service_conferenceservice_conferenceservice_speaker",
-      "community": 2,
+      "community": 1,
       "norm_label": ".speaker()"
     },
     {
@@ -1242,7 +1251,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L87",
       "id": "service_conferenceservice_conferenceservice_notifications",
-      "community": 2,
+      "community": 1,
       "norm_label": ".notifications()"
     },
     {
@@ -1251,7 +1260,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L91",
       "id": "service_conferenceservice_conferenceservice_mapspots",
-      "community": 2,
+      "community": 1,
       "norm_label": ".mapspots()"
     },
     {
@@ -1260,7 +1269,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L95",
       "id": "service_conferenceservice_conferenceservice_ratingcriteria",
-      "community": 2,
+      "community": 1,
       "norm_label": ".ratingcriteria()"
     },
     {
@@ -1269,7 +1278,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L99",
       "id": "service_conferenceservice_conferenceservice_tracks",
-      "community": 2,
+      "community": 1,
       "norm_label": ".tracks()"
     },
     {
@@ -1278,7 +1287,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L103",
       "id": "service_conferenceservice_conferenceservice_savedids",
-      "community": 2,
+      "community": 1,
       "norm_label": ".savedids()"
     },
     {
@@ -1287,7 +1296,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L110",
       "id": "service_conferenceservice_conferenceservice_daydates",
-      "community": 2,
+      "community": 1,
       "norm_label": ".daydates()"
     },
     {
@@ -1296,7 +1305,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/ConferenceService.java",
       "source_location": "L115",
       "id": "service_conferenceservice_conferenceservice_status",
-      "community": 2,
+      "community": 1,
       "norm_label": ".status()"
     },
     {
@@ -1305,7 +1314,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_service_userdataservice_java",
-      "community": 1,
+      "community": 2,
       "norm_label": "userdataservice.java"
     },
     {
@@ -1314,7 +1323,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L26",
       "id": "service_userdataservice_userdataservice",
-      "community": 1,
+      "community": 2,
       "norm_label": "userdataservice"
     },
     {
@@ -1323,7 +1332,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L38",
       "id": "service_userdataservice_userdataservice_userdataservice",
-      "community": 1,
+      "community": 2,
       "norm_label": ".userdataservice()"
     },
     {
@@ -1332,7 +1341,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L49",
       "id": "service_userdataservice_userdataservice_setsaved",
-      "community": 1,
+      "community": 2,
       "norm_label": ".setsaved()"
     },
     {
@@ -1341,7 +1350,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L60",
       "id": "service_userdataservice_userdataservice_savedsessionids",
-      "community": 1,
+      "community": 2,
       "norm_label": ".savedsessionids()"
     },
     {
@@ -1350,7 +1359,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L67",
       "id": "service_userdataservice_userdataservice_getnote",
-      "community": 1,
+      "community": 2,
       "norm_label": ".getnote()"
     },
     {
@@ -1359,7 +1368,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L75",
       "id": "service_userdataservice_userdataservice_putnote",
-      "community": 1,
+      "community": 2,
       "norm_label": ".putnote()"
     },
     {
@@ -1368,7 +1377,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L82",
       "id": "service_userdataservice_userdataservice_addattachment",
-      "community": 1,
+      "community": 2,
       "norm_label": ".addattachment()"
     },
     {
@@ -1395,7 +1404,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L111",
       "id": "service_userdataservice_userdataservice_getrating",
-      "community": 1,
+      "community": 2,
       "norm_label": ".getrating()"
     },
     {
@@ -1404,7 +1413,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L119",
       "id": "service_userdataservice_userdataservice_putrating",
-      "community": 1,
+      "community": 2,
       "norm_label": ".putrating()"
     },
     {
@@ -1413,7 +1422,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L138",
       "id": "service_userdataservice_userdataservice_note",
-      "community": 1,
+      "community": 2,
       "norm_label": ".note()"
     },
     {
@@ -1422,7 +1431,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L144",
       "id": "service_userdataservice_userdataservice_requiresession",
-      "community": 1,
+      "community": 2,
       "norm_label": ".requiresession()"
     },
     {
@@ -1431,7 +1440,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L150",
       "id": "service_userdataservice_userdataservice_tonotedto",
-      "community": 1,
+      "community": 2,
       "norm_label": ".tonotedto()"
     },
     {
@@ -1440,7 +1449,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L155",
       "id": "service_userdataservice_userdataservice_toattachmentdto",
-      "community": 1,
+      "community": 2,
       "norm_label": ".toattachmentdto()"
     },
     {
@@ -1449,7 +1458,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L159",
       "id": "service_userdataservice_userdataservice_toratingdto",
-      "community": 5,
+      "community": 2,
       "norm_label": ".toratingdto()"
     },
     {
@@ -1458,7 +1467,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/UserDataService.java",
       "source_location": "L165",
       "id": "service_userdataservice_userdataservice_clamp",
-      "community": 1,
+      "community": 2,
       "norm_label": ".clamp()"
     },
     {
@@ -1512,7 +1521,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/DtoMapper.java",
       "source_location": "L55",
       "id": "service_dtomapper_dtomapper_speaker",
-      "community": 9,
+      "community": 8,
       "norm_label": ".speaker()"
     },
     {
@@ -1521,7 +1530,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/DtoMapper.java",
       "source_location": "L61",
       "id": "service_dtomapper_dtomapper_notification",
-      "community": 11,
+      "community": 10,
       "norm_label": ".notification()"
     },
     {
@@ -1530,7 +1539,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/DtoMapper.java",
       "source_location": "L65",
       "id": "service_dtomapper_dtomapper_mapspot",
-      "community": 14,
+      "community": 12,
       "norm_label": ".mapspot()"
     },
     {
@@ -1665,7 +1674,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_domain_sessionrating_java",
-      "community": 5,
+      "community": 2,
       "norm_label": "sessionrating.java"
     },
     {
@@ -1674,7 +1683,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L16",
       "id": "domain_sessionrating_sessionrating",
-      "community": 5,
+      "community": 2,
       "norm_label": "sessionrating"
     },
     {
@@ -1683,7 +1692,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L39",
       "id": "domain_sessionrating_sessionrating_sessionrating",
-      "community": 5,
+      "community": 2,
       "norm_label": ".sessionrating()"
     },
     {
@@ -1692,7 +1701,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L46",
       "id": "domain_sessionrating_sessionrating_getid",
-      "community": 5,
+      "community": 2,
       "norm_label": ".getid()"
     },
     {
@@ -1701,7 +1710,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L47",
       "id": "domain_sessionrating_sessionrating_getdeviceid",
-      "community": 5,
+      "community": 2,
       "norm_label": ".getdeviceid()"
     },
     {
@@ -1710,7 +1719,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L48",
       "id": "domain_sessionrating_sessionrating_getsessionid",
-      "community": 5,
+      "community": 2,
       "norm_label": ".getsessionid()"
     },
     {
@@ -1719,7 +1728,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L49",
       "id": "domain_sessionrating_sessionrating_getfeedback",
-      "community": 5,
+      "community": 2,
       "norm_label": ".getfeedback()"
     },
     {
@@ -1728,7 +1737,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L50",
       "id": "domain_sessionrating_sessionrating_setfeedback",
-      "community": 5,
+      "community": 2,
       "norm_label": ".setfeedback()"
     },
     {
@@ -1737,7 +1746,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L51",
       "id": "domain_sessionrating_sessionrating_getupdatedat",
-      "community": 5,
+      "community": 2,
       "norm_label": ".getupdatedat()"
     },
     {
@@ -1746,7 +1755,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L52",
       "id": "domain_sessionrating_sessionrating_setupdatedat",
-      "community": 5,
+      "community": 2,
       "norm_label": ".setupdatedat()"
     },
     {
@@ -1755,7 +1764,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionRating.java",
       "source_location": "L53",
       "id": "domain_sessionrating_sessionrating_getscores",
-      "community": 5,
+      "community": 2,
       "norm_label": ".getscores()"
     },
     {
@@ -1854,7 +1863,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_domain_sessionnote_java",
-      "community": 1,
+      "community": 14,
       "norm_label": "sessionnote.java"
     },
     {
@@ -1863,7 +1872,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L17",
       "id": "domain_sessionnote_sessionnote",
-      "community": 1,
+      "community": 14,
       "norm_label": "sessionnote"
     },
     {
@@ -1872,7 +1881,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L41",
       "id": "domain_sessionnote_sessionnote_sessionnote",
-      "community": 1,
+      "community": 14,
       "norm_label": ".sessionnote()"
     },
     {
@@ -1881,7 +1890,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L48",
       "id": "domain_sessionnote_sessionnote_getid",
-      "community": 1,
+      "community": 14,
       "norm_label": ".getid()"
     },
     {
@@ -1890,7 +1899,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L49",
       "id": "domain_sessionnote_sessionnote_getdeviceid",
-      "community": 1,
+      "community": 14,
       "norm_label": ".getdeviceid()"
     },
     {
@@ -1899,7 +1908,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L50",
       "id": "domain_sessionnote_sessionnote_getsessionid",
-      "community": 1,
+      "community": 14,
       "norm_label": ".getsessionid()"
     },
     {
@@ -1908,7 +1917,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L51",
       "id": "domain_sessionnote_sessionnote_getbody",
-      "community": 1,
+      "community": 14,
       "norm_label": ".getbody()"
     },
     {
@@ -1917,7 +1926,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L52",
       "id": "domain_sessionnote_sessionnote_setbody",
-      "community": 1,
+      "community": 2,
       "norm_label": ".setbody()"
     },
     {
@@ -1926,7 +1935,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L53",
       "id": "domain_sessionnote_sessionnote_getupdatedat",
-      "community": 1,
+      "community": 14,
       "norm_label": ".getupdatedat()"
     },
     {
@@ -1935,7 +1944,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L54",
       "id": "domain_sessionnote_sessionnote_setupdatedat",
-      "community": 1,
+      "community": 14,
       "norm_label": ".setupdatedat()"
     },
     {
@@ -1944,7 +1953,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SessionNote.java",
       "source_location": "L55",
       "id": "domain_sessionnote_sessionnote_getattachments",
-      "community": 1,
+      "community": 2,
       "norm_label": ".getattachments()"
     },
     {
@@ -1953,7 +1962,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_domain_notification_java",
-      "community": 11,
+      "community": 10,
       "norm_label": "notification.java"
     },
     {
@@ -1962,7 +1971,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L8",
       "id": "domain_notification_notification",
-      "community": 11,
+      "community": 10,
       "norm_label": "notification"
     },
     {
@@ -1971,7 +1980,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L29",
       "id": "domain_notification_notification_notification",
-      "community": 11,
+      "community": 10,
       "norm_label": ".notification()"
     },
     {
@@ -1980,7 +1989,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L31",
       "id": "domain_notification_notification_getid",
-      "community": 11,
+      "community": 10,
       "norm_label": ".getid()"
     },
     {
@@ -1989,7 +1998,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L32",
       "id": "domain_notification_notification_getkind",
-      "community": 11,
+      "community": 10,
       "norm_label": ".getkind()"
     },
     {
@@ -1998,7 +2007,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L33",
       "id": "domain_notification_notification_gettitle",
-      "community": 11,
+      "community": 10,
       "norm_label": ".gettitle()"
     },
     {
@@ -2007,7 +2016,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L34",
       "id": "domain_notification_notification_getbody",
-      "community": 11,
+      "community": 10,
       "norm_label": ".getbody()"
     },
     {
@@ -2016,7 +2025,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L35",
       "id": "domain_notification_notification_gettimelabel",
-      "community": 11,
+      "community": 10,
       "norm_label": ".gettimelabel()"
     },
     {
@@ -2025,7 +2034,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L36",
       "id": "domain_notification_notification_isunread",
-      "community": 11,
+      "community": 10,
       "norm_label": ".isunread()"
     },
     {
@@ -2034,7 +2043,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Notification.java",
       "source_location": "L37",
       "id": "domain_notification_notification_getsortorder",
-      "community": 11,
+      "community": 10,
       "norm_label": ".getsortorder()"
     },
     {
@@ -2043,7 +2052,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_domain_savedsession_java",
-      "community": 8,
+      "community": 5,
       "norm_label": "savedsession.java"
     },
     {
@@ -2052,7 +2061,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L12",
       "id": "domain_savedsession_savedsession",
-      "community": 8,
+      "community": 5,
       "norm_label": "savedsession"
     },
     {
@@ -2061,7 +2070,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L28",
       "id": "domain_savedsession_savedsession_savedsession",
-      "community": 8,
+      "community": 5,
       "norm_label": ".savedsession()"
     },
     {
@@ -2070,7 +2079,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L35",
       "id": "domain_savedsession_savedsession_getdeviceid",
-      "community": 8,
+      "community": 5,
       "norm_label": ".getdeviceid()"
     },
     {
@@ -2079,7 +2088,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L36",
       "id": "domain_savedsession_savedsession_getsessionid",
-      "community": 8,
+      "community": 5,
       "norm_label": ".getsessionid()"
     },
     {
@@ -2088,7 +2097,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L37",
       "id": "domain_savedsession_savedsession_getcreatedat",
-      "community": 8,
+      "community": 5,
       "norm_label": ".getcreatedat()"
     },
     {
@@ -2097,7 +2106,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L39",
       "id": "domain_savedsession_key",
-      "community": 8,
+      "community": 5,
       "norm_label": "key"
     },
     {
@@ -2106,7 +2115,7 @@
       "source_file": "",
       "source_location": "",
       "id": "serializable",
-      "community": 8,
+      "community": 5,
       "norm_label": "serializable"
     },
     {
@@ -2115,7 +2124,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L43",
       "id": "domain_savedsession_key_key",
-      "community": 8,
+      "community": 5,
       "norm_label": ".key()"
     },
     {
@@ -2124,7 +2133,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L50",
       "id": "domain_savedsession_key_equals",
-      "community": 8,
+      "community": 5,
       "norm_label": ".equals()"
     },
     {
@@ -2133,7 +2142,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/SavedSession.java",
       "source_location": "L57",
       "id": "domain_savedsession_key_hashcode",
-      "community": 8,
+      "community": 5,
       "norm_label": ".hashcode()"
     },
     {
@@ -2142,7 +2151,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_domain_speaker_java",
-      "community": 9,
+      "community": 8,
       "norm_label": "speaker.java"
     },
     {
@@ -2151,7 +2160,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L16",
       "id": "domain_speaker_speaker",
-      "community": 9,
+      "community": 8,
       "norm_label": "speaker"
     },
     {
@@ -2160,7 +2169,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L47",
       "id": "domain_speaker_speaker_speaker",
-      "community": 9,
+      "community": 8,
       "norm_label": ".speaker()"
     },
     {
@@ -2169,7 +2178,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L49",
       "id": "domain_speaker_speaker_getid",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getid()"
     },
     {
@@ -2178,7 +2187,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L50",
       "id": "domain_speaker_speaker_getname",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getname()"
     },
     {
@@ -2187,7 +2196,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L51",
       "id": "domain_speaker_speaker_getrole",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getrole()"
     },
     {
@@ -2196,7 +2205,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L52",
       "id": "domain_speaker_speaker_getorg",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getorg()"
     },
     {
@@ -2205,7 +2214,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L53",
       "id": "domain_speaker_speaker_getlocation",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getlocation()"
     },
     {
@@ -2214,7 +2223,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L54",
       "id": "domain_speaker_speaker_getpronoun",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getpronoun()"
     },
     {
@@ -2223,7 +2232,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L55",
       "id": "domain_speaker_speaker_getbio",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getbio()"
     },
     {
@@ -2232,7 +2241,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L56",
       "id": "domain_speaker_speaker_gethandle",
-      "community": 9,
+      "community": 8,
       "norm_label": ".gethandle()"
     },
     {
@@ -2241,7 +2250,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L57",
       "id": "domain_speaker_speaker_getsourceid",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getsourceid()"
     },
     {
@@ -2250,7 +2259,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L58",
       "id": "domain_speaker_speaker_getimageurl",
-      "community": 9,
+      "community": 8,
       "norm_label": ".getimageurl()"
     },
     {
@@ -2259,7 +2268,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Speaker.java",
       "source_location": "L59",
       "id": "domain_speaker_speaker_gettags",
-      "community": 9,
+      "community": 8,
       "norm_label": ".gettags()"
     },
     {
@@ -2268,7 +2277,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_domain_mapspot_java",
-      "community": 14,
+      "community": 12,
       "norm_label": "mapspot.java"
     },
     {
@@ -2277,7 +2286,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L10",
       "id": "domain_mapspot_mapspot",
-      "community": 14,
+      "community": 12,
       "norm_label": "mapspot"
     },
     {
@@ -2286,7 +2295,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L31",
       "id": "domain_mapspot_mapspot_mapspot",
-      "community": 14,
+      "community": 12,
       "norm_label": ".mapspot()"
     },
     {
@@ -2295,7 +2304,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L33",
       "id": "domain_mapspot_mapspot_getid",
-      "community": 14,
+      "community": 12,
       "norm_label": ".getid()"
     },
     {
@@ -2304,7 +2313,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L34",
       "id": "domain_mapspot_mapspot_getname",
-      "community": 14,
+      "community": 12,
       "norm_label": ".getname()"
     },
     {
@@ -2313,7 +2322,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L35",
       "id": "domain_mapspot_mapspot_getposx",
-      "community": 14,
+      "community": 12,
       "norm_label": ".getposx()"
     },
     {
@@ -2322,7 +2331,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L36",
       "id": "domain_mapspot_mapspot_getposy",
-      "community": 14,
+      "community": 12,
       "norm_label": ".getposy()"
     },
     {
@@ -2331,7 +2340,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L37",
       "id": "domain_mapspot_mapspot_getkind",
-      "community": 14,
+      "community": 12,
       "norm_label": ".getkind()"
     },
     {
@@ -2340,7 +2349,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/MapSpot.java",
       "source_location": "L38",
       "id": "domain_mapspot_mapspot_getsortorder",
-      "community": 14,
+      "community": 12,
       "norm_label": ".getsortorder()"
     },
     {
@@ -2349,7 +2358,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/RatingScore.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_domain_ratingscore_java",
-      "community": 8,
+      "community": 5,
       "norm_label": "ratingscore.java"
     },
     {
@@ -2412,7 +2421,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/RatingScore.java",
       "source_location": "L43",
       "id": "domain_ratingscore_key",
-      "community": 8,
+      "community": 5,
       "norm_label": "key"
     },
     {
@@ -2421,7 +2430,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/RatingScore.java",
       "source_location": "L47",
       "id": "domain_ratingscore_key_key",
-      "community": 8,
+      "community": 5,
       "norm_label": ".key()"
     },
     {
@@ -2430,7 +2439,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/RatingScore.java",
       "source_location": "L49",
       "id": "domain_ratingscore_key_equals",
-      "community": 8,
+      "community": 5,
       "norm_label": ".equals()"
     },
     {
@@ -2439,7 +2448,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/RatingScore.java",
       "source_location": "L56",
       "id": "domain_ratingscore_key_hashcode",
-      "community": 8,
+      "community": 5,
       "norm_label": ".hashcode()"
     },
     {
@@ -2484,7 +2493,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/domain/Session.java",
       "source_location": "L74",
       "id": "domain_session_session_getdayid",
-      "community": 2,
+      "community": 1,
       "norm_label": ".getdayid()"
     },
     {
@@ -2781,7 +2790,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/ConferenceDayRepository.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_repo_conferencedayrepository_java",
-      "community": 2,
+      "community": 1,
       "norm_label": "conferencedayrepository.java"
     },
     {
@@ -2790,7 +2799,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/ConferenceDayRepository.java",
       "source_location": "L7",
       "id": "repo_conferencedayrepository_conferencedayrepository",
-      "community": 2,
+      "community": 1,
       "norm_label": "conferencedayrepository"
     },
     {
@@ -2799,7 +2808,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/ConferenceDayRepository.java",
       "source_location": "L8",
       "id": "repo_conferencedayrepository_conferencedayrepository_findallbyorderbyidasc",
-      "community": 2,
+      "community": 1,
       "norm_label": ".findallbyorderbyidasc()"
     },
     {
@@ -2835,7 +2844,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SavedSessionRepository.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_repo_savedsessionrepository_java",
-      "community": 1,
+      "community": 2,
       "norm_label": "savedsessionrepository.java"
     },
     {
@@ -2844,7 +2853,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SavedSessionRepository.java",
       "source_location": "L8",
       "id": "repo_savedsessionrepository_savedsessionrepository",
-      "community": 1,
+      "community": 2,
       "norm_label": "savedsessionrepository"
     },
     {
@@ -2853,7 +2862,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SavedSessionRepository.java",
       "source_location": "L10",
       "id": "repo_savedsessionrepository_savedsessionrepository_existsbydeviceidandsessionid",
-      "community": 1,
+      "community": 2,
       "norm_label": ".existsbydeviceidandsessionid()"
     },
     {
@@ -2862,7 +2871,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SavedSessionRepository.java",
       "source_location": "L12",
       "id": "repo_savedsessionrepository_savedsessionrepository_deletebydeviceidandsessionid",
-      "community": 1,
+      "community": 2,
       "norm_label": ".deletebydeviceidandsessionid()"
     },
     {
@@ -2871,7 +2880,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SavedSessionRepository.java",
       "source_location": "L14",
       "id": "repo_savedsessionrepository_savedsessionrepository_findsessionidsbydeviceid",
-      "community": 1,
+      "community": 2,
       "norm_label": ".findsessionidsbydeviceid()"
     },
     {
@@ -2934,7 +2943,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SessionRepository.java",
       "source_location": "L1",
       "id": "backend_src_main_java_com_jprime_companion_repo_sessionrepository_java",
-      "community": 2,
+      "community": 1,
       "norm_label": "sessionrepository.java"
     },
     {
@@ -2943,7 +2952,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SessionRepository.java",
       "source_location": "L8",
       "id": "repo_sessionrepository_sessionrepository",
-      "community": 2,
+      "community": 1,
       "norm_label": "sessionrepository"
     },
     {
@@ -2952,7 +2961,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SessionRepository.java",
       "source_location": "L10",
       "id": "repo_sessionrepository_sessionrepository_findallbyorderbydayidascsortorderasc",
-      "community": 2,
+      "community": 1,
       "norm_label": ".findallbyorderbydayidascsortorderasc()"
     },
     {
@@ -2961,7 +2970,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SessionRepository.java",
       "source_location": "L12",
       "id": "repo_sessionrepository_sessionrepository_findbydayidorderbysortorderasc",
-      "community": 2,
+      "community": 1,
       "norm_label": ".findbydayidorderbysortorderasc()"
     },
     {
@@ -2970,7 +2979,7 @@
       "source_file": "backend/src/main/java/com/jprime/companion/repo/SessionRepository.java",
       "source_location": "L14",
       "id": "repo_sessionrepository_sessionrepository_finddistincttracks",
-      "community": 2,
+      "community": 1,
       "norm_label": ".finddistincttracks()"
     },
     {
@@ -3495,9 +3504,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_partvalue",
-      "confidence_score": 1.0
+      "target": "src_app_partvalue"
     },
     {
       "relation": "contains",
@@ -3505,9 +3514,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_getconferencedatekey",
-      "confidence_score": 1.0
+      "target": "src_app_getconferencedatekey"
     },
     {
       "relation": "contains",
@@ -3515,9 +3524,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L170",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_getconferenceclockminutes",
-      "confidence_score": 1.0
+      "target": "src_app_getconferenceclockminutes"
     },
     {
       "relation": "contains",
@@ -3525,9 +3534,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_parsetimestamp",
-      "confidence_score": 1.0
+      "target": "src_app_parsetimestamp"
     },
     {
       "relation": "contains",
@@ -3535,9 +3544,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L184",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_getdefaultactiveday",
-      "confidence_score": 1.0
+      "target": "src_app_getdefaultactiveday"
     },
     {
       "relation": "contains",
@@ -3545,9 +3554,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L194",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_deriveclockstatus",
-      "confidence_score": 1.0
+      "target": "src_app_deriveclockstatus"
     },
     {
       "relation": "contains",
@@ -3555,8 +3564,18 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L205",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_syncsessionstoclock",
+      "target": "src_app_syncsessionstoclock"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "frontend_src_app_tsx",
+      "target": "src_app_isdrillablesession",
       "confidence_score": 1.0
     },
     {
@@ -3615,9 +3634,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L251",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_getnowminutesforday",
-      "confidence_score": 1.0
+      "target": "src_app_getnowminutesforday"
     },
     {
       "relation": "contains",
@@ -3705,9 +3724,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L1439",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_tick",
-      "confidence_score": 1.0
+      "target": "src_app_tick"
     },
     {
       "relation": "contains",
@@ -3737,9 +3756,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_getconferencedatekey",
-      "target": "src_app_partvalue",
-      "confidence_score": 1.0
+      "target": "src_app_partvalue"
     },
     {
       "relation": "calls",
@@ -3748,9 +3767,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L172",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_getconferenceclockminutes",
-      "target": "src_app_partvalue",
-      "confidence_score": 1.0
+      "target": "src_app_partvalue"
     },
     {
       "relation": "calls",
@@ -3759,9 +3778,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L187",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_getdefaultactiveday",
-      "target": "src_app_getconferencedatekey",
-      "confidence_score": 1.0
+      "target": "src_app_getconferencedatekey"
     },
     {
       "relation": "calls",
@@ -3770,9 +3789,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L252",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_getnowminutesforday",
-      "target": "src_app_getconferencedatekey",
-      "confidence_score": 1.0
+      "target": "src_app_getconferencedatekey"
     },
     {
       "relation": "calls",
@@ -3781,9 +3800,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L253",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_getnowminutesforday",
-      "target": "src_app_getconferenceclockminutes",
-      "confidence_score": 1.0
+      "target": "src_app_getconferenceclockminutes"
     },
     {
       "relation": "calls",
@@ -3792,9 +3811,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L195",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_deriveclockstatus",
-      "target": "src_app_parsetimestamp",
-      "confidence_score": 1.0
+      "target": "src_app_parsetimestamp"
     },
     {
       "relation": "calls",
@@ -6183,9 +6202,9 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/DtoMapper.java",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "service_dtomapper_dtomapper",
-      "target": "service_dtomapper_dtomapper_instant",
-      "confidence_score": 1.0
+      "target": "service_dtomapper_dtomapper_instant"
     },
     {
       "relation": "calls",
@@ -6205,9 +6224,9 @@
       "source_file": "backend/src/main/java/com/jprime/companion/service/DtoMapper.java",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "service_dtomapper_dtomapper_session",
-      "target": "service_dtomapper_dtomapper_instant",
-      "confidence_score": 1.0
+      "target": "service_dtomapper_dtomapper_instant"
     },
     {
       "relation": "calls",
@@ -8440,5 +8459,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ffd9eb27e1a6c655b6c9c46e383bdf67a0c1210e"
+  "built_at_commit": "e02b3f731da10352ae352bb2ed3393d3e0a58f38"
 }

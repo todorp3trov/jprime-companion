@@ -499,9 +499,13 @@ button {
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 
-.miniSession:hover {
+.miniSession:not(.static):hover {
   border-color: rgba(236, 72, 153, 0.4);
   background: rgba(236, 72, 153, 0.08);
+}
+
+.miniSession.static {
+  cursor: default;
 }
 
 .miniSession > span,
@@ -827,11 +831,15 @@ button {
     rgba(255, 255, 255, 0.025);
 }
 
-.agendaSessionRow:hover {
+.agendaSessionRow:not(.static):hover {
   border-color: var(--line-strong);
   background:
     linear-gradient(120deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
     rgba(255, 255, 255, 0.035);
+}
+
+.agendaSessionRow.static {
+  grid-template-columns: 72px minmax(0, 1fr);
 }
 
 .agendaEmptyLocationRow {
@@ -868,6 +876,10 @@ button {
   text-align: left;
   display: grid;
   gap: 6px;
+}
+
+.agendaSessionMain.static {
+  cursor: default;
 }
 
 .agendaSessionMain .sessionTopline {
