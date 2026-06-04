@@ -50,3 +50,7 @@ You do not need Graphify to run the app. Install it only when you want to refres
 ```sh
 graphify update .
 ```
+
+## Fresh Start Note
+
+On a fresh start, Docker creates the local PostgreSQL volume, and the backend applies its database migrations before serving the app. The first launch opens with the seeded conference data and no saved sessions, notes, or ratings for your browser/device. Later starts reuse the same database volume and browser device ID unless you remove them.
