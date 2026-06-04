@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ChangeEvent, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type CSSProperties, type ReactNode } from "react";
 import {
   ArrowLeft,
   AtSign,
@@ -117,6 +117,10 @@ type SpeakerProfile = {
   sourceId: number | null;
   imageUrl: string;
 };
+
+type EditorialBlock =
+  | { kind: "paragraph"; text: string }
+  | { kind: "list"; items: string[] };
 
 let conferenceDays: ConferenceDay[] = [];
 let notifications: Notification[] = [];
@@ -238,6 +242,124 @@ function socialNetworkLabel(url: string) {
   if (host === "bsky.app") return "Bluesky";
   if (host === "x.com") return "X";
   return "social profile";
+}
+
+function parseEditorialBlocks(text: string): EditorialBlock[] {
+  const lines = text.replace(/\r\n/g, "\n").split("\n");
+  const blocks: EditorialBlock[] = [];
+  let paragraph: string[] = [];
+  let list: string[] = [];
+
+  const flushParagraph = () => {
+    const value = paragraph.join(" ").replace(/\s+/g, " ").trim();
+    if (value) blocks.push({ kind: "paragraph", text: value });
+    paragraph = [];
+  };
+
+  const flushList = () => {
+    if (list.length) blocks.push({ kind: "list", items: list });
+    list = [];
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    const bullet = line.match(/^[-*•]\s+(.+)$/);
+
+    if (!line) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+
+    if (bullet) {
+      flushParagraph();
+      list.push(bullet[1].trim());
+      continue;
+    }
+
+    flushList();
+    paragraph.push(line);
+  }
+
+  flushParagraph();
+  flushList();
+  return blocks;
+}
+
+function splitTrailingUrlPunctuation(value: string) {
+  const match = value.match(/^(.*?)([),.!?:;]+)?$/);
+  return {
+    url: match?.[1] ?? value,
+    suffix: match?.[2] ?? "",
+  };
+}
+
+function renderInlineEditorial(text: string, keyPrefix: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  const tokenPattern = /(https?:\/\/[^\s<]+)|\*\*([^*]+)\*\*|`([^`]+)`/g;
+  let cursor = 0;
+  let tokenIndex = 0;
+
+  for (const match of text.matchAll(tokenPattern)) {
+    const index = match.index ?? 0;
+    if (index > cursor) {
+      nodes.push(text.slice(cursor, index));
+    }
+
+    if (match[1]) {
+      const { url, suffix } = splitTrailingUrlPunctuation(match[1]);
+      const safeUrl = safeHttpsUrl(url);
+      nodes.push(
+        safeUrl ? (
+          <a href={safeUrl} key={`${keyPrefix}-link-${tokenIndex}`} target="_blank" rel="noreferrer">
+            {new URL(safeUrl).hostname.replace(/^www\./, "")}
+          </a>
+        ) : (
+          url
+        ),
+      );
+      if (suffix) nodes.push(suffix);
+    } else if (match[2]) {
+      nodes.push(<strong key={`${keyPrefix}-strong-${tokenIndex}`}>{match[2]}</strong>);
+    } else if (match[3]) {
+      nodes.push(<code key={`${keyPrefix}-code-${tokenIndex}`}>{match[3]}</code>);
+    }
+
+    cursor = index + match[0].length;
+    tokenIndex += 1;
+  }
+
+  if (cursor < text.length) {
+    nodes.push(text.slice(cursor));
+  }
+
+  return nodes;
+}
+
+function EditorialText({ text, variant }: { text: string; variant: "session" | "speaker" }) {
+  const blocks = parseEditorialBlocks(text);
+
+  if (!blocks.length) return null;
+
+  return (
+    <div className={`editorialText ${variant === "session" ? "eventEditorial" : "speakerEditorial"}`}>
+      {blocks.map((block, index) =>
+        block.kind === "list" ? (
+          <ul className="editorialList" key={`list-${index}`}>
+            {block.items.map((item, itemIndex) => (
+              <li key={`item-${index}-${itemIndex}`}>
+                <span>{renderInlineEditorial(item, `list-${index}-${itemIndex}`)}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={index === 0 ? "editorialLead" : undefined} key={`paragraph-${index}`}>
+            {renderInlineEditorial(block.text, `paragraph-${index}`)}
+          </p>
+        ),
+      )}
+    </div>
+  );
 }
 
 function deriveLocations(sessions: Session[]) {
@@ -1070,7 +1192,6 @@ function SessionDetail({
           <span className={`statusChip ${session.status}`}>{session.status}</span>
         </div>
         <h2>{session.title}</h2>
-        <p>{session.description}</p>
         {session.speakers.length ? (
           <div className="speakerList">
             {session.speakers.map((name) => {
@@ -1118,6 +1239,15 @@ function SessionDetail({
           </div>
         )}
       </div>
+      {session.description ? (
+        <section className={`abstractPanel ${kindMeta[session.kind].className}`}>
+          <div className="abstractHeader">
+            <span className="speakerKicker">Abstract</span>
+            <span>{kindMeta[session.kind].label}</span>
+          </div>
+          <EditorialText text={session.description} variant="session" />
+        </section>
+      ) : null}
       <div className="actionRow">
         <button onClick={onNotes}>
           <PenLine size={17} /> Notes
@@ -1204,7 +1334,7 @@ function SpeakerScreen({
       {profile.bio ? (
         <div className="speakerBio">
           <span className="speakerKicker">About</span>
-          <p>{profile.bio}</p>
+          <EditorialText text={profile.bio} variant="speaker" />
         </div>
       ) : null}
 
