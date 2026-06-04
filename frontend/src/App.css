@@ -1390,6 +1390,81 @@ button {
   color: var(--muted-2);
 }
 
+.mapWipCard {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 9px 11px;
+  align-items: start;
+  padding: 13px;
+  border-radius: 8px;
+  border: 1px solid rgba(245, 165, 36, 0.28);
+  background:
+    linear-gradient(135deg, rgba(245, 165, 36, 0.13), transparent 42%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 16px 32px rgba(8, 6, 30, 0.26);
+}
+
+.mapWipCard::after {
+  content: "";
+  position: absolute;
+  inset: auto 12px 0;
+  height: 2px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(90deg, var(--jp-amber), var(--jp-pink), transparent);
+  opacity: 0.8;
+}
+
+.mapWipIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: #171636;
+  background: linear-gradient(135deg, var(--jp-amber), var(--jp-pink-soft));
+  box-shadow: 0 10px 24px rgba(245, 165, 36, 0.18);
+}
+
+.mapWipCopy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.mapWipCopy span {
+  color: var(--ink);
+  font: 800 11px "IBM Plex Mono", monospace;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.mapWipCopy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.mapWipBadges {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mapWipBadges span {
+  min-height: 22px;
+  padding: 4px 7px;
+  border-radius: 7px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(245, 165, 36, 0.2);
+  font: 700 10px "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+}
+
 .mapPanel {
   height: 342px;
   border-radius: 8px;

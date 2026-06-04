@@ -1375,6 +1375,19 @@ function SpeakerScreen({
 function VenueMapScreen() {
   return (
     <section className="screenStack">
+      <div className="mapWipCard" role="status">
+        <span className="mapWipIcon" aria-hidden="true">
+          <Wrench size={16} />
+        </span>
+        <div className="mapWipCopy">
+          <span>Work in progress</span>
+          <p>Venue map details are still being finalized.</p>
+        </div>
+        <div className="mapWipBadges" aria-label="Map progress">
+          <span>Floor plan</span>
+          <span>Routes</span>
+        </div>
+      </div>
       <div className="mapPanel">
         <div className="mapGrid" />
         {mapSpots.length ? (
