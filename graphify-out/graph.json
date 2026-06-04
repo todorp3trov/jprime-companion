@@ -3574,9 +3574,9 @@
       "source_file": "frontend/src/App.tsx",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app_tsx",
-      "target": "src_app_isdrillablesession",
-      "confidence_score": 1.0
+      "target": "src_app_isdrillablesession"
     },
     {
       "relation": "contains",
@@ -8459,5 +8459,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e02b3f731da10352ae352bb2ed3393d3e0a58f38"
+  "built_at_commit": "811b3f7c6aaaaf18c417af71d7d35fc948406a87"
 }
