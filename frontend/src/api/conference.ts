@@ -6,6 +6,8 @@ export type ApiSession = {
   day: number;
   time: string;
   end: string;
+  startsAt?: string;
+  endsAt?: string;
   title: string;
   speakers: string[];
   room: string;
@@ -19,7 +21,14 @@ export type ApiSession = {
   status: "upcoming" | "live" | "done";
 };
 
-export type ApiDay = { id: number; weekday: string; wdShort: string; date: string; short: string };
+export type ApiDay = {
+  id: number;
+  weekday: string;
+  wdShort: string;
+  date: string;
+  short: string;
+  calendarDate?: string;
+};
 export type ApiNotification = {
   id: string;
   kind: "reminder" | "alert" | "info";

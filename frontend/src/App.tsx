@@ -48,6 +48,7 @@ import jPrimeLogo from "./assets/jprime-logo.png";
 type Tab = "home" | "agenda" | "schedule" | "map";
 
 type Kind = "keynote" | "lecture" | "workshop" | "break";
+type SessionStatus = "upcoming" | "live" | "done";
 type LoadState = "loading" | "ready" | "error";
 
 type Overlay =
@@ -61,6 +62,8 @@ type Session = {
   day: number;
   time: string;
   end: string;
+  startsAt?: string;
+  endsAt?: string;
   title: string;
   speakers: string[]; // 0 for breaks/plenary; 1–3 named presenters for talks & workshops
   room: string;
@@ -71,10 +74,17 @@ type Session = {
   description: string;
   materials: string[];
   saved: boolean;
-  status: "upcoming" | "live" | "done";
+  status: SessionStatus;
 };
 
-type ConferenceDay = { id: number; weekday: string; wdShort: string; date: string; short: string };
+type ConferenceDay = {
+  id: number;
+  weekday: string;
+  wdShort: string;
+  date: string;
+  short: string;
+  calendarDate?: string;
+};
 
 type AgendaSlot =
   | { kind: "plenary"; session: Session }
@@ -129,6 +139,75 @@ const kindMeta: Record<Kind, { label: string; className: string; Icon: typeof Mi
 };
 
 const locationColors = ["#6db3ff", "#f0509a", "#f5a524", "#5eead4", "#a78bfa"];
+const conferenceTimeZone = "Europe/Sofia";
+const wallClockTickMs = 15_000;
+const conferenceDateFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: conferenceTimeZone,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+const conferenceTimeFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: conferenceTimeZone,
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hourCycle: "h23",
+});
+
+function partValue(parts: Intl.DateTimeFormatPart[], type: Intl.DateTimeFormatPartTypes) {
+  return parts.find((part) => part.type === type)?.value ?? "0";
+}
+
+function getConferenceDateKey(date: Date) {
+  const parts = conferenceDateFormatter.formatToParts(date);
+  const year = partValue(parts, "year");
+  const month = partValue(parts, "month");
+  const day = partValue(parts, "day");
+  return `${year}-${month}-${day}`;
+}
+
+function getConferenceClockMinutes(date: Date) {
+  const parts = conferenceTimeFormatter.formatToParts(date);
+  const hours = Number(partValue(parts, "hour"));
+  const minutes = Number(partValue(parts, "minute"));
+  const seconds = Number(partValue(parts, "second"));
+  return hours * 60 + minutes + seconds / 60;
+}
+
+function parseTimestamp(value?: string) {
+  if (!value) return null;
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function getDefaultActiveDay(days: ConferenceDay[], now: Date) {
+  if (!days.length) return 1;
+  if (!days.some((day) => day.calendarDate)) return days[0].id;
+  const today = getConferenceDateKey(now);
+  const current = days.find((day) => day.calendarDate === today);
+  if (current) return current.id;
+  const upcoming = days.find((day) => day.calendarDate && day.calendarDate > today);
+  return upcoming?.id ?? days[days.length - 1]?.id ?? 1;
+}
+
+function deriveClockStatus(session: Session, now: Date): SessionStatus {
+  const start = parseTimestamp(session.startsAt);
+  const end = parseTimestamp(session.endsAt);
+  if (start === null || end === null) return session.status;
+
+  const nowMs = now.getTime();
+  if (nowMs < start) return "upcoming";
+  if (nowMs < end) return "live";
+  return "done";
+}
+
+function syncSessionsToClock(sessions: Session[], now: Date) {
+  return sessions.map((session) => {
+    const status = deriveClockStatus(session, now);
+    return status === session.status ? session : { ...session, status };
+  });
+}
 
 function deriveLocations(sessions: Session[]) {
   const locations: string[] = [];
@@ -151,8 +230,9 @@ function timeToMinutes(time: string) {
 }
 
 function formatMinutes(totalMinutes: number) {
-  const hours = Math.floor(totalMinutes / 60);
-  const minutes = totalMinutes % 60;
+  const wholeMinutes = Math.floor(totalMinutes);
+  const hours = Math.floor(wholeMinutes / 60);
+  const minutes = wholeMinutes % 60;
   return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
 }
 
@@ -168,13 +248,9 @@ function getConferenceWindow(sessions: Session[]) {
   return { start, end, calendarStart, calendarEnd, hourCount };
 }
 
-// Derive a believable "now" for the prototype: the middle of the live block.
-function getNowMinutes(sessions: Session[]) {
-  const live = sessions.filter((session) => session.status === "live");
-  if (!live.length) return null;
-  const start = Math.min(...live.map((session) => timeToMinutes(session.time)));
-  const end = Math.max(...live.map((session) => timeToMinutes(session.end)));
-  return Math.round(start + (end - start) * 0.55);
+function getNowMinutesForDay(day: ConferenceDay | undefined, now: Date) {
+  if (!day?.calendarDate || day.calendarDate !== getConferenceDateKey(now)) return null;
+  return getConferenceClockMinutes(now);
 }
 
 // Outlook-style overlap layout: split mutually overlapping events into columns.
@@ -484,9 +560,16 @@ function HomeScreen({
   sessions: Session[];
   onOpenSession: (id: string) => void;
 }) {
-  const live = sessions.find((session) => session.status === "live") ?? sessions[0];
-  const upcoming = sessions.filter((session) => session.status === "upcoming" && !session.plenary).slice(0, 3);
-  if (!live) {
+  const live = sessions.find((session) => session.status === "live");
+  const next = sessions.find((session) => session.status === "upcoming");
+  const featured = live ?? next ?? sessions[sessions.length - 1];
+  const heroState: SessionStatus = live ? "live" : next ? "upcoming" : "done";
+  const heroLabel = heroState === "live" ? "Now running" : heroState === "upcoming" ? "Next up" : "Conference complete";
+  const upcoming = sessions
+    .filter((session) => session.status === "upcoming" && session.id !== featured?.id)
+    .slice(0, 3);
+
+  if (!featured) {
     return (
       <section className="screenStack">
         <NotificationFeed />
@@ -501,18 +584,18 @@ function HomeScreen({
 
       <div className="heroPanel">
         <div>
-          <p className="sectionLabel liveLabel">
-            <span className="livePulse" />
-            Now running
+          <p className={`sectionLabel liveLabel ${heroState}`}>
+            {heroState === "live" ? <span className="livePulse" /> : heroState === "upcoming" ? <Clock size={11} /> : <Check size={11} />}
+            {heroLabel}
           </p>
-          <h2>{live.title}</h2>
-          <p>{[live.room, live.speakers.join(", ")].filter(Boolean).join(" · ")}</p>
+          <h2>{featured.title}</h2>
+          <p>{[featured.room, featured.speakers.join(", ")].filter(Boolean).join(" · ")}</p>
           <span className="heroTime">
             <Clock size={12} />
-            {live.time}–{live.end}
+            {featured.time}–{featured.end}
           </span>
         </div>
-        <button className="primaryButton" onClick={() => onOpenSession(live.id)}>
+        <button className="primaryButton" onClick={() => onOpenSession(featured.id)}>
           Open <ChevronRight size={16} />
         </button>
       </div>
@@ -531,7 +614,7 @@ function HomeScreen({
           ))}
         </div>
       ) : (
-        <StatePanel title="No upcoming sessions" body="There are no upcoming sessions in the API response." />
+        <StatePanel title="No upcoming sessions" body="The remaining agenda has wrapped for now." />
       )}
     </section>
   );
@@ -671,11 +754,13 @@ function AgendaScreen({
 function ScheduleScreen({
   sessions,
   activeDay,
+  now,
   onSelectDay,
   onOpenSession,
 }: {
   sessions: Session[];
   activeDay: number;
+  now: Date;
   onSelectDay: (day: number) => void;
   onOpenSession: (id: string) => void;
 }) {
@@ -711,7 +796,11 @@ function ScheduleScreen({
   const toTop = (minutes: number) => `${((minutes - dayWindow.calendarStart) / range) * 100}%`;
   const toHeight = (minutes: number) => `${(minutes / range) * 100}%`;
   const hourLines = Array.from({ length: dayWindow.hourCount + 1 }, (_, index) => dayWindow.calendarStart + index * 60);
-  const nowMinutes = getNowMinutes(dayEvents);
+  const clockMinutes = getNowMinutesForDay(day, now);
+  const nowMinutes =
+    clockMinutes !== null && clockMinutes >= dayWindow.calendarStart && clockMinutes <= dayWindow.calendarEnd
+      ? clockMinutes
+      : null;
   const columnGap = 6;
   const eventGap = 6;
 
@@ -723,9 +812,9 @@ function ScheduleScreen({
           <strong>{day.weekday}</strong>
           <span>{day.date}</span>
         </div>
-        {nowMinutes !== null ? (
+        {clockMinutes !== null ? (
           <span className="calNowChip">
-            <Clock size={13} /> Now {formatMinutes(nowMinutes)}
+            <Clock size={13} /> Now {formatMinutes(clockMinutes)}
           </span>
         ) : null}
       </div>
@@ -1338,11 +1427,20 @@ function BottomNav({
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>("home");
   const [activeDay, setActiveDay] = useState<number>(1);
+  const [manualDaySelection, setManualDaySelection] = useState(false);
   const [loadState, setLoadState] = useState<LoadState>("loading");
   const [loadError, setLoadError] = useState<string | null>(null);
   const [sessions, setSessions] = useState<Session[]>([]);
   const [agendaLocationFilter, setAgendaLocationFilter] = useState<string[]>([]);
   const [stack, setStack] = useState<Overlay[]>([]);
+  const [now, setNow] = useState(() => new Date());
+
+  useEffect(() => {
+    const tick = () => setNow(new Date());
+    tick();
+    const interval = window.setInterval(tick, wallClockTickMs);
+    return () => window.clearInterval(interval);
+  }, []);
 
   // Reference look-ups live in module-level holders; reassign them and then
   // re-render via state so every screen re-reads the API-backed data.
@@ -1366,7 +1464,8 @@ export default function App() {
         notifications = notifs;
         mapSpots = spots;
         ratingCriteria = criteria;
-        setActiveDay((current) => (days.some((day) => day.id === current) ? current : days[0]?.id ?? current));
+        setManualDaySelection(false);
+        setActiveDay(getDefaultActiveDay(days, new Date()));
         setSessions(sess);
         setLoadState("ready");
       } catch (error) {
@@ -1381,13 +1480,20 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (manualDaySelection || loadState !== "ready" || !conferenceDays.length) return;
+    setActiveDay(getDefaultActiveDay(conferenceDays, now));
+  }, [loadState, manualDaySelection, now]);
+
+  const clockedSessions = useMemo(() => syncSessionsToClock(sessions, now), [sessions, now]);
+
   const overlay = stack.length ? stack[stack.length - 1] : null;
   const overlaySessionId = overlay && "id" in overlay ? overlay.id : null;
   const overlaySession = useMemo(
-    () => sessions.find((session) => session.id === overlaySessionId) ?? null,
-    [overlaySessionId, sessions],
+    () => clockedSessions.find((session) => session.id === overlaySessionId) ?? null,
+    [overlaySessionId, clockedSessions],
   );
-  const agendaLocations = useMemo(() => deriveLocations(sessions), [sessions]);
+  const agendaLocations = useMemo(() => deriveLocations(clockedSessions), [clockedSessions]);
   const appContent =
     loadState === "ready" ? (
       overlay ? (
@@ -1403,18 +1509,18 @@ export default function App() {
           )}
           {overlay.kind === "notes" && overlaySession && <NotesScreen session={overlaySession} />}
           {overlay.kind === "rating" && overlaySession && <RatingScreen session={overlaySession} />}
-          {overlay.kind === "speaker" && <SpeakerScreen name={overlay.name} sessions={sessions} />}
+          {overlay.kind === "speaker" && <SpeakerScreen name={overlay.name} sessions={clockedSessions} />}
         </>
       ) : (
         <>
-          {activeTab === "home" && <HomeScreen sessions={sessions} onOpenSession={openSession} />}
+          {activeTab === "home" && <HomeScreen sessions={clockedSessions} onOpenSession={openSession} />}
           {activeTab === "agenda" && (
             <AgendaScreen
-              sessions={sessions}
+              sessions={clockedSessions}
               activeDay={activeDay}
               locations={agendaLocations}
               selectedLocations={agendaLocationFilter}
-              onSelectDay={setActiveDay}
+              onSelectDay={selectConferenceDay}
               onOpenSession={openSession}
               onToggleSave={toggleSave}
               onToggleLocation={toggleAgendaLocation}
@@ -1423,9 +1529,10 @@ export default function App() {
           )}
           {activeTab === "schedule" && (
             <ScheduleScreen
-              sessions={sessions}
+              sessions={clockedSessions}
               activeDay={activeDay}
-              onSelectDay={setActiveDay}
+              now={now}
+              onSelectDay={selectConferenceDay}
               onOpenSession={openSession}
             />
           )}
@@ -1447,6 +1554,11 @@ export default function App() {
   function selectTab(tab: Tab) {
     setStack([]);
     setActiveTab(tab);
+  }
+
+  function selectConferenceDay(day: number) {
+    setManualDaySelection(true);
+    setActiveDay(day);
   }
 
   function openSession(id: string) {

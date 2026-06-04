@@ -54,7 +54,9 @@ class CompanionApiIntegrationTest {
     @Test
     void seedsAllSessionsDaysAndSpeakers() throws Exception {
         mvc.perform(get("/api/sessions")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(50)));
-        mvc.perform(get("/api/days")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(2)));
+        mvc.perform(get("/api/days")).andExpect(status().isOk())
+            .andExpect(jsonPath("$", hasSize(2)))
+            .andExpect(jsonPath("$[1].calendarDate", is("2026-06-04")));
         mvc.perform(get("/api/speakers")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(29)));
         mvc.perform(get("/api/sessions").param("day", "1")).andExpect(jsonPath("$", hasSize(25)));
         mvc.perform(get("/api/sessions").param("day", "2")).andExpect(jsonPath("$", hasSize(25)));
@@ -67,6 +69,8 @@ class CompanionApiIntegrationTest {
             .andExpect(jsonPath("$.title", is("Building Agents with Spring AI")))
             .andExpect(jsonPath("$.time", is("11:05")))
             .andExpect(jsonPath("$.end", is("11:55")))
+            .andExpect(jsonPath("$.startsAt", is("2026-06-04T11:05:00+03:00")))
+            .andExpect(jsonPath("$.endsAt", is("2026-06-04T11:55:00+03:00")))
             .andExpect(jsonPath("$.room", is("Hall A")))
             .andExpect(jsonPath("$.kind", is("lecture")))
             .andExpect(jsonPath("$.speakers", hasSize(1)))

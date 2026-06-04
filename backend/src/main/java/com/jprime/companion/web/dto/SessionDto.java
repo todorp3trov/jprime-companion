@@ -7,6 +7,8 @@ public record SessionDto(
     int day,
     String time,
     String end,
+    String startsAt,
+    String endsAt,
     String title,
     List<String> speakers,
     String room,

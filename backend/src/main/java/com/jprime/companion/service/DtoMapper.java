@@ -1,5 +1,6 @@
 package com.jprime.companion.service;
 
+import com.jprime.companion.config.ClockConfig;
 import com.jprime.companion.domain.ConferenceDay;
 import com.jprime.companion.domain.MapSpot;
 import com.jprime.companion.domain.Notification;
@@ -12,8 +13,10 @@ import com.jprime.companion.web.dto.NotificationDto;
 import com.jprime.companion.web.dto.RatingCriterionDto;
 import com.jprime.companion.web.dto.SessionDto;
 import com.jprime.companion.web.dto.SpeakerDto;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /** Pure mapping from JPA entities to the wire DTOs the frontend expects. */
@@ -23,13 +26,15 @@ public final class DtoMapper {
 
     private DtoMapper() {}
 
-    public static SessionDto session(Session s, boolean saved, String status) {
+    public static SessionDto session(Session s, boolean saved, String status, LocalDate calendarDate) {
         List<String> speakers = s.getSpeakers().stream().map(Speaker::getName).toList();
         return new SessionDto(
             s.getId(),
             s.getDayId(),
             fmt(s.getStartTime()),
             fmt(s.getEndTime()),
+            instant(calendarDate, s.getStartTime()),
+            instant(calendarDate, s.getEndTime()),
             s.getTitle(),
             speakers,
             s.getRoom().getName(),
@@ -44,7 +49,7 @@ public final class DtoMapper {
     }
 
     public static DayDto day(ConferenceDay d) {
-        return new DayDto(d.getId(), d.getWeekday(), d.getWdShort(), d.getDateLabel(), d.getShortLabel());
+        return new DayDto(d.getId(), d.getWeekday(), d.getWdShort(), d.getDateLabel(), d.getShortLabel(), d.getCalendarDate());
     }
 
     public static SpeakerDto speaker(Speaker s) {
@@ -67,5 +72,12 @@ public final class DtoMapper {
 
     private static String fmt(LocalTime t) {
         return t.format(HM);
+    }
+
+    private static String instant(LocalDate date, LocalTime time) {
+        if (date == null) {
+            return null;
+        }
+        return ZonedDateTime.of(date, time, ClockConfig.CONFERENCE_ZONE).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
     }
 }

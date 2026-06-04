@@ -678,6 +678,18 @@ button {
   gap: 6px;
 }
 
+.liveLabel svg {
+  color: currentColor;
+}
+
+.liveLabel.upcoming {
+  color: var(--jp-blue-light);
+}
+
+.liveLabel.done {
+  color: var(--jp-amber);
+}
+
 .livePulse {
   width: 7px;
   height: 7px;

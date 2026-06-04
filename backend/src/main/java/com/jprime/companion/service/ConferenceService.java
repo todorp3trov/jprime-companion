@@ -65,7 +65,7 @@ public class ConferenceService {
         Set<String> savedIds = savedIds(deviceId);
         Map<Short, LocalDate> dayDates = dayDates();
         return list.stream()
-            .map(s -> DtoMapper.session(s, savedIds.contains(s.getId()), status(s, dayDates)))
+            .map(s -> DtoMapper.session(s, savedIds.contains(s.getId()), status(s, dayDates), dayDates.get(s.getDayId())))
             .toList();
     }
 
@@ -73,7 +73,7 @@ public class ConferenceService {
         Set<String> savedIds = savedIds(deviceId);
         Map<Short, LocalDate> dayDates = dayDates();
         return sessions.findById(id)
-            .map(s -> DtoMapper.session(s, savedIds.contains(s.getId()), status(s, dayDates)));
+            .map(s -> DtoMapper.session(s, savedIds.contains(s.getId()), status(s, dayDates), dayDates.get(s.getDayId())));
     }
 
     public List<SpeakerDto> speakers() {
