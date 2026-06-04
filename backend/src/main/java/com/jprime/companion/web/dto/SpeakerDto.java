@@ -12,6 +12,7 @@ public record SpeakerDto(
     String bio,
     List<String> tags,
     String handle,
+    String socialUrl,
     Integer sourceId,
     String imageUrl
 ) {}

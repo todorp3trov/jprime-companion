@@ -113,6 +113,7 @@ type SpeakerProfile = {
   bio: string;
   tags: string[];
   handle: string;
+  socialUrl?: string;
   sourceId: number | null;
   imageUrl: string;
 };
@@ -215,6 +216,28 @@ function isDrillableSession(session: Session | null | undefined) {
 
 function getSessionMetaLine(session: Session) {
   return [session.room, session.speakers.join(", ")].filter(Boolean).join(" · ");
+}
+
+function displayHandle(handle: string) {
+  return handle.replace(/^@/, "");
+}
+
+function safeHttpsUrl(url?: string | null) {
+  if (!url) return "";
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "https:" ? parsed.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function socialNetworkLabel(url: string) {
+  const safeUrl = safeHttpsUrl(url);
+  const host = safeUrl ? new URL(safeUrl).hostname.replace(/^www\./, "") : "";
+  if (host === "bsky.app") return "Bluesky";
+  if (host === "x.com") return "X";
+  return "social profile";
 }
 
 function deriveLocations(sessions: Session[]) {
@@ -1132,17 +1155,30 @@ function SpeakerScreen({
   if (!profile) return null;
 
   const roleParts = [profile.role, profile.org].filter(Boolean);
+  const socialUrl = safeHttpsUrl(profile.socialUrl);
   const metaItems = [
     profile.location ? (
       <span key="location">
-        <MapPin size={12} /> {profile.location}
+        <MapPin size={12} aria-hidden="true" /> {profile.location}
       </span>
     ) : null,
     profile.pronoun ? <span key="pronoun">{profile.pronoun}</span> : null,
-    profile.handle ? (
+    profile.handle && socialUrl ? (
+      <a
+        className="speakerHandle"
+        href={socialUrl}
+        key="handle"
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Open ${socialNetworkLabel(socialUrl)} profile for ${name}`}
+      >
+        <AtSign size={12} aria-hidden="true" />
+        {displayHandle(profile.handle)}
+      </a>
+    ) : profile.handle ? (
       <span className="speakerHandle" key="handle">
-        <AtSign size={12} />
-        {profile.handle.replace(/^@/, "")}
+        <AtSign size={12} aria-hidden="true" />
+        {displayHandle(profile.handle)}
       </span>
     ) : null,
   ].filter(Boolean);

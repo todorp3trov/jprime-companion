@@ -162,10 +162,13 @@ function parseSpeakerDetail(html) {
   const socialHtml = speakerCardMatch?.[0] ?? "";
   const xMatch = socialHtml.match(/https:\/\/x\.com\/([^"'<\s]+)/);
   const bskyMatch = socialHtml.match(/https:\/\/bsky\.app\/profile\/([^"'<\s]+)/);
+  const xHandle = xMatch?.[1]?.replace(/^@/, "") ?? "";
+  const bskyHandle = bskyMatch?.[1] ?? "";
   return {
     role: headlineMatch ? stripTags(headlineMatch[1]) : "",
     bio: bioMatch ? stripTags(bioMatch[1]) : "",
-    handle: xMatch ? `@${xMatch[1].replace(/^@/, "")}` : bskyMatch ? `@${bskyMatch[1]}` : "",
+    handle: xHandle ? `@${xHandle}` : bskyHandle ? `@${bskyHandle}` : "",
+    socialUrl: xHandle ? `https://x.com/${xHandle}` : bskyHandle ? `https://bsky.app/profile/${bskyHandle}` : "",
   };
 }
 
@@ -241,6 +244,7 @@ const speakers = speakerNames.map((name) => {
     pronoun: "",
     bio: detail.bio ?? "",
     handle: detail.handle ?? "",
+    socialUrl: detail.socialUrl ?? "",
     imageUrl: sourceId ? `${BASE_URL}/image/speaker/${sourceId}` : "",
   };
 });
@@ -251,6 +255,7 @@ const lines = [
   "",
   "alter table speaker add column if not exists source_id integer;",
   "alter table speaker add column if not exists image_url varchar(256) not null default '';",
+  "alter table speaker add column if not exists social_url varchar(256) not null default '';",
   "",
   "delete from notification;",
   "delete from session;",
@@ -282,11 +287,11 @@ const lines = [
     .map(([name, x, y, kind], index) => `  (${sql(name)}, ${sql(x)}, ${sql(y)}, ${sql(kind)}, ${index})`)
     .join(",\n") + ";",
   "",
-  "insert into speaker (name, role, org, location, pronoun, bio, handle, source_id, image_url) values",
+  "insert into speaker (name, role, org, location, pronoun, bio, handle, social_url, source_id, image_url) values",
   speakers
     .map(
       (speaker) =>
-        `  (${sql(speaker.name)}, ${sql(speaker.role)}, ${sql(speaker.org)}, ${sql(speaker.location)}, ${sql(speaker.pronoun)}, ${sql(speaker.bio)}, ${sql(speaker.handle)}, ${sqlNullableNumber(speaker.sourceId)}, ${sql(speaker.imageUrl)})`,
+        `  (${sql(speaker.name)}, ${sql(speaker.role)}, ${sql(speaker.org)}, ${sql(speaker.location)}, ${sql(speaker.pronoun)}, ${sql(speaker.bio)}, ${sql(speaker.handle)}, ${sql(speaker.socialUrl)}, ${sqlNullableNumber(speaker.sourceId)}, ${sql(speaker.imageUrl)})`,
     )
     .join(",\n") + ";",
   "",

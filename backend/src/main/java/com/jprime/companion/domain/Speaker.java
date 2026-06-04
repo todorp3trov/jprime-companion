@@ -32,6 +32,9 @@ public class Speaker {
 
     private String handle;
 
+    @Column(name = "social_url")
+    private String socialUrl;
+
     @Column(name = "source_id")
     private Integer sourceId;
 
@@ -54,6 +57,7 @@ public class Speaker {
     public String getPronoun() { return pronoun; }
     public String getBio() { return bio; }
     public String getHandle() { return handle; }
+    public String getSocialUrl() { return socialUrl; }
     public Integer getSourceId() { return sourceId; }
     public String getImageUrl() { return imageUrl; }
     public List<String> getTags() { return tags; }

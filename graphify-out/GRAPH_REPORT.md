@@ -1,16 +1,16 @@
 # Graph Report - jprime-companion  (2026-06-04)
 
 ## Corpus Check
-- 64 files · ~28,328 words
+- 65 files · ~28,759 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 372 nodes · 493 edges · 48 communities (30 shown, 18 thin omitted)
-- Extraction: 80% EXTRACTED · 20% INFERRED · 0% AMBIGUOUS · INFERRED: 101 edges (avg confidence: 0.8)
+- 377 nodes · 500 edges · 48 communities (30 shown, 18 thin omitted)
+- Extraction: 80% EXTRACTED · 20% INFERRED · 0% AMBIGUOUS · INFERRED: 102 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `70cb3859`
+- Built from commit: `b99d3b09`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,8 +45,8 @@
 1. `UserDataService` - 17 edges
 2. `Session` - 17 edges
 3. `ConferenceService` - 14 edges
-4. `SessionController` - 13 edges
-5. `Speaker` - 13 edges
+4. `Speaker` - 14 edges
+5. `SessionController` - 13 edges
 6. `apiGet()` - 12 edges
 7. `DtoMapper` - 10 edges
 8. `SessionRating` - 10 edges
@@ -68,26 +68,26 @@
 ## Communities (48 total, 18 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.08
-Nodes (35): apiDelete(), apiGet(), apiJson(), apiObjectUrl(), apiSend(), apiUpload(), deviceHeaders(), unwrap() (+27 more)
+Cohesion: 0.07
+Nodes (37): apiDelete(), apiGet(), apiJson(), apiObjectUrl(), apiSend(), apiUpload(), deviceHeaders(), unwrap() (+29 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.08
 Nodes (7): CompanionApiIntegrationTest, FixedClockConfig, ConferenceDayRepository, NoteAttachmentRepository, SessionRepository, ConferenceService, AttachmentController
 
 ### Community 2 - "Community 2"
-Cohesion: 0.09
-Nodes (3): SessionRating, SavedSessionRepository, UserDataService
+Cohesion: 0.07
+Nodes (4): RatingScore, SessionRating, SavedSessionRepository, UserDataService
 
 ### Community 5 - "Community 5"
-Cohesion: 0.1
-Nodes (5): Key, RatingScore, Key, SavedSession, Serializable
-
-### Community 6 - "Community 6"
 Cohesion: 0.18
 Nodes (11): datePart(), decodeHtml(), eventDate(), isBreakLike(), kindFor(), normalizeName(), parseSpeakerDetail(), parseSpeakerIndex() (+3 more)
 
 ### Community 7 - "Community 7"
+Cohesion: 0.14
+Nodes (4): Key, Key, SavedSession, Serializable
+
+### Community 8 - "Community 8"
 Cohesion: 0.21
 Nodes (11): CompanionApplication, childPidsOf(), descendantPidsOf(), handleSignal(), log(), postgresStatus(), run(), spawnChild() (+3 more)
 
@@ -102,16 +102,16 @@ Nodes (4): DeviceIdArgumentResolver, WebConfig, HandlerMethodArgumentResolver, W
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `UserDataService` connect `Community 2` to `Community 1`?**
-  _High betweenness centrality (0.129) - this node is a cross-community bridge._
-- **Why does `DtoMapper` connect `Community 3` to `Community 8`, `Community 10`, `Community 12`, `Community 13`?**
+  _High betweenness centrality (0.127) - this node is a cross-community bridge._
+- **Why does `DtoMapper` connect `Community 3` to `Community 10`, `Community 12`, `Community 13`, `Community 6`?**
   _High betweenness centrality (0.126) - this node is a cross-community bridge._
+- **Why does `RatingScore` connect `Community 2` to `Community 7`?**
+  _High betweenness centrality (0.052) - this node is a cross-community bridge._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.09 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.12 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.09 - nodes in this community are weakly interconnected._

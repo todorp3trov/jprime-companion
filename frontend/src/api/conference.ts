@@ -49,6 +49,7 @@ export type ApiSpeaker = {
   bio: string;
   tags: string[];
   handle: string;
+  socialUrl?: string;
   sourceId: number | null;
   imageUrl: string;
 };

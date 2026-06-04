@@ -55,7 +55,8 @@ public final class DtoMapper {
     public static SpeakerDto speaker(Speaker s) {
         return new SpeakerDto(
             s.getId(), s.getName(), s.getRole(), s.getOrg(), s.getLocation(),
-            s.getPronoun(), s.getBio(), List.copyOf(s.getTags()), s.getHandle(), s.getSourceId(), s.getImageUrl());
+            s.getPronoun(), s.getBio(), List.copyOf(s.getTags()), s.getHandle(), s.getSocialUrl(),
+            s.getSourceId(), s.getImageUrl());
     }
 
     public static NotificationDto notification(Notification n) {

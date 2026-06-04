@@ -1763,7 +1763,8 @@ button {
   letter-spacing: 0.02em;
 }
 
-.speakerMeta span {
+.speakerMeta span,
+.speakerMeta a {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -1775,6 +1776,15 @@ button {
 
 .speakerHandle {
   color: var(--jp-pink-soft);
+}
+
+a.speakerHandle {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a.speakerHandle:hover {
+  color: #ffffff;
 }
 
 .speakerKicker {

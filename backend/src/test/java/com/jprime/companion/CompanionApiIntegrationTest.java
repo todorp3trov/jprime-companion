@@ -57,7 +57,10 @@ class CompanionApiIntegrationTest {
         mvc.perform(get("/api/days")).andExpect(status().isOk())
             .andExpect(jsonPath("$", hasSize(2)))
             .andExpect(jsonPath("$[1].calendarDate", is("2026-06-04")));
-        mvc.perform(get("/api/speakers")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(29)));
+        mvc.perform(get("/api/speakers")).andExpect(status().isOk())
+            .andExpect(jsonPath("$", hasSize(29)))
+            .andExpect(jsonPath("$[0].name", is("Arnaud Jean")))
+            .andExpect(jsonPath("$[0].socialUrl", is("https://x.com/thewitcherish")));
         mvc.perform(get("/api/sessions").param("day", "1")).andExpect(jsonPath("$", hasSize(25)));
         mvc.perform(get("/api/sessions").param("day", "2")).andExpect(jsonPath("$", hasSize(25)));
     }
