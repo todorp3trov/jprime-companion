@@ -317,6 +317,72 @@ button {
   line-height: 1.1;
 }
 
+.heroPanel.multiLive {
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+.heroLiveList {
+  display: grid;
+  margin-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.heroLiveItem {
+  width: 100%;
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: minmax(72px, auto) minmax(0, 1fr) 16px;
+  grid-template-areas:
+    "time title arrow"
+    "meta meta arrow";
+  gap: 4px 10px;
+  align-items: center;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.heroLiveItem:not(.static):hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.heroLiveTime {
+  grid-area: time;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--jp-pink-soft);
+  font: 700 11px "IBM Plex Mono", monospace;
+}
+
+.heroLiveItem strong {
+  grid-area: title;
+  min-width: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.heroLiveItem small {
+  grid-area: meta;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.heroLiveArrow {
+  grid-area: arrow;
+  color: var(--jp-pink);
+  justify-self: end;
+}
+
 .statePanel {
   min-height: 180px;
   padding: 18px;

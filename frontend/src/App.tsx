@@ -213,6 +213,10 @@ function isDrillableSession(session: Session | null | undefined) {
   return Boolean(session && session.kind !== "break");
 }
 
+function getSessionMetaLine(session: Session) {
+  return [session.room, session.speakers.join(", ")].filter(Boolean).join(" · ");
+}
+
 function deriveLocations(sessions: Session[]) {
   const locations: string[] = [];
   for (const session of sessions) {
@@ -580,15 +584,25 @@ function HomeScreen({
   sessions: Session[];
   onOpenSession: (id: string) => void;
 }) {
-  const live = sessions.find((session) => session.status === "live");
+  const liveSessions = sessions.filter((session) => session.status === "live");
+  const hasMultipleLiveSessions = liveSessions.length > 1;
   const next = sessions.find((session) => session.status === "upcoming");
-  const featured = live ?? next ?? sessions[sessions.length - 1];
-  const heroState: SessionStatus = live ? "live" : next ? "upcoming" : "done";
-  const heroLabel = heroState === "live" ? "Now running" : heroState === "upcoming" ? "Next up" : "Conference complete";
+  const featured = liveSessions[0] ?? next ?? sessions[sessions.length - 1];
+  const heroState: SessionStatus = liveSessions.length ? "live" : next ? "upcoming" : "done";
+  const heroLabel =
+    heroState === "live"
+      ? hasMultipleLiveSessions
+        ? `${liveSessions.length} sessions running`
+        : "Now running"
+      : heroState === "upcoming"
+        ? "Next up"
+        : "Conference complete";
   const upcoming = sessions
     .filter((session) => session.status === "upcoming" && session.id !== featured?.id)
     .slice(0, 3);
   const featuredCanOpen = isDrillableSession(featured);
+  const liveRooms = Array.from(new Set(liveSessions.map((session) => session.room).filter(Boolean)));
+  const liveRoomCount = liveRooms.length || liveSessions.length;
 
   if (!featured) {
     return (
@@ -603,20 +617,55 @@ function HomeScreen({
     <section className="screenStack">
       <NotificationFeed />
 
-      <div className="heroPanel">
+      <div className={`heroPanel ${hasMultipleLiveSessions ? "multiLive" : ""}`}>
         <div>
           <p className={`sectionLabel liveLabel ${heroState}`}>
             {heroState === "live" ? <span className="livePulse" /> : heroState === "upcoming" ? <Clock size={11} /> : <Check size={11} />}
             {heroLabel}
           </p>
-          <h2>{featured.title}</h2>
-          <p>{[featured.room, featured.speakers.join(", ")].filter(Boolean).join(" · ")}</p>
-          <span className="heroTime">
-            <Clock size={12} />
-            {featured.time}–{featured.end}
-          </span>
+          {hasMultipleLiveSessions ? (
+            <>
+              <h2>
+                Now running across {liveRoomCount} {liveRoomCount === 1 ? "room" : "rooms"}
+              </h2>
+              <div className="heroLiveList">
+                {liveSessions.map((session) => {
+                  const meta = getSessionMetaLine(session);
+                  const content = (
+                    <>
+                      <span className="heroLiveTime">
+                        <Clock size={12} />
+                        {session.time}–{session.end}
+                      </span>
+                      <strong>{session.title}</strong>
+                      {meta ? <small>{meta}</small> : null}
+                      {isDrillableSession(session) ? <ChevronRight className="heroLiveArrow" size={15} /> : null}
+                    </>
+                  );
+                  return isDrillableSession(session) ? (
+                    <button className="heroLiveItem" key={session.id} onClick={() => onOpenSession(session.id)}>
+                      {content}
+                    </button>
+                  ) : (
+                    <div className="heroLiveItem static" key={session.id}>
+                      {content}
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <>
+              <h2>{featured.title}</h2>
+              <p>{getSessionMetaLine(featured)}</p>
+              <span className="heroTime">
+                <Clock size={12} />
+                {featured.time}–{featured.end}
+              </span>
+            </>
+          )}
         </div>
-        {featuredCanOpen ? (
+        {!hasMultipleLiveSessions && featuredCanOpen ? (
           <button className="primaryButton" onClick={() => onOpenSession(featured.id)}>
             Open <ChevronRight size={16} />
           </button>
